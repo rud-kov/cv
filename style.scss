@@ -1,0 +1,661 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+nav ul, nav li {
+  list-style: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: none;
+  color: #767676;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+* {
+  border-spacing: border-box;
+}
+
+
+/////////////////////////////////// GENERAL STYLING /////
+
+html {
+  height: 100%;
+  font-family: 'Oxygen', 'Helvetica', sans-serif;
+}
+
+body {
+  height: 100%;
+}
+
+p {
+  font-family: 'pt sans', sans-serif;
+  line-height: 1.5em;
+}
+
+/////////////////////////////////// MIXINS /////
+
+
+/////////////////////////////////// HEADER AND MENU /////
+
+.header {
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  position: fixed;
+  background-color: #FFF;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 150px;
+}
+
+.header__inner {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  margin: 0 auto 50px;
+}
+
+.header__me {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.header__pfp {
+  width: 80px;
+}
+
+.header__name {
+  text-align: center;
+  color: #ff724c;
+  line-height: 1.2;
+  font-family: Helvetica;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.header__links__ul {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0 30;
+}
+
+.header__links__ul:nth-child(1) {
+  border-top: 1px solid whitesmoke;
+}
+
+.header__tile {
+  text-align: center;
+  border-bottom: 0.5px solid whitesmoke;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.header__tile:hover {
+  opacity: initial;
+}
+
+.header__tile:hover::after {
+  background-color: #ff724c; 
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 71px;
+  right: 0;
+}
+
+.header__link {
+  font-size: 0.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.header__link img {
+  margin: 0 auto;
+  width: 25px;
+  height: 25px;
+}
+
+/////////////////////////////// MAIN 
+
+.page__wrapper {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+}
+
+.central__wrapper {
+  min-height: 100%;
+  height: 100%;
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+  background-image: url(images/icons/main_bg_light.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main {
+  max-width: 1300px;
+  height: 90%;
+  display: flex;
+  z-index: 69;
+  flex: 2;
+  background-color: #FFF;
+  justify-content: center;
+  align-content: center;
+  transition: ease-in-out 2s;
+  margin: 50px;
+}
+
+///////////////////////////// HOME
+
+.main--transparent {
+  background-color: transparent;
+  align-items: center;
+}
+
+.home__headline__wrapper {
+  align-items: center;
+}
+
+.headline--big {
+  font-size: 70px;
+  text-align: center;
+  color: #ff724c;
+}
+
+.home__subheadline {
+  font-family: monospace;
+  font-size: 2rem;
+  position: relative;
+  width: max-content;
+  margin-top: 30px;
+}
+
+.home__subheadline:empty {
+  height: 32px;
+}
+
+@keyframes blink {
+  to {
+    opacity: 0;
+  }
+}
+
+.home__subheadline::after {
+  content: '';
+  position: absolute;
+  height: 2rem;
+  width: 4px;
+  background: black;
+  animation: blink 800ms infinite;
+}
+  
+//////////////// SWITCHING ELEMENTS 
+
+.main--home--closed {
+  position: absolute;
+  left: -1500px;
+}
+
+.main--home--open {
+  position: static;
+  left: auto;
+}
+
+.main--about--closed {
+  position: absolute;
+  right: -1500px;
+}
+
+.main--about--open {
+  position: static;
+  right: auto;
+}
+
+.main--resume--closed {
+  position: absolute;
+  top: -1500px;
+}
+
+.main--resume--open {
+  position: static;
+  bottom: auto;
+}
+
+.main--contact--closed {
+  position: absolute;
+  bottom: 1500px; 
+}
+
+.main--contact--open {
+  position: static;
+  bottom: auto;
+}
+
+.main--projects--closed {
+  position: absolute;
+  top: -1500px;
+}
+
+.main--projects--open {
+  position: static;
+  top: auto;
+}
+
+
+//////////////////// ABOUT WRAPPER
+
+.about__wrapper {
+  display: flex;
+  flex: 2;
+  box-shadow: 0 1px 33px rgba(0,0,0,.15);
+}
+
+.about__inner__wrapper {
+  padding: 20px 60px 50px;
+  margin: 0 auto;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  overflow: scroll;
+  // -webkit-mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2) calc(90%), rgba(255, 255, 255, 0.5) calc(90%));
+  // mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2) calc(90%), rgba(255, 255, 255, 0.5) calc(90%));
+}
+
+.about__header::before {
+  content: "";
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  left: -10px;
+  font-size: 5rem;
+  border-top: 3px solid #ff724c;
+  border-left: 3px solid #ff724c;
+}
+
+.about__header {
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.about__header__content {
+  width: max-content;
+  margin: 0 auto;
+}
+
+.about__headline {
+  color: #EEEE;
+  font-size: 5.5em;
+}
+
+.about__subline {
+  color: white;
+  background-color: #ff724c;
+  padding: 5px 10px;
+  width: max-content;
+  margin-left: auto;
+}
+
+.about__intro {
+  display: flex;
+  justify-content: space-between;
+  flex: 2;
+}
+
+.about__photo {
+  max-width: 353.53px;
+  max-height: 353.53px;
+}
+
+
+.about__description,
+.about__photo__wrapper,
+.about__basics {
+  max-width: 353px;
+}
+
+.about__description h4 {
+  font-size: 1.4rem;
+}
+
+.about__description p {
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.about__basics__nav li {
+  margin: 0 0 25px 0;
+
+}
+
+.about__basics__nav p {
+  display: inline;
+}
+
+.about__basics__nav li h5 {
+  margin: 10px 0;
+  white-space: nowrap;
+  display: inline;
+  border-bottom: 3px solid #ff724c;
+
+  font-weight: 700;
+}
+
+.about__icons__container {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.about__icon {
+  width: 16px;
+  border: 1px solid #767676;
+  padding: 5px;
+}
+
+.about__icon:hover {
+  background-color: rgba(255, 114, 76, 1)
+
+}
+
+.skills__headline {
+  height: 1.17em;
+  align-content: center;
+  max-height: fit-content;
+}
+
+.section__heading {
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.section__heading::before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 2px;
+  height: 100%;
+  left: -10px;
+  bottom: 0;
+  background-color: #ff724c;
+}
+
+.about__skills__showcase {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.about__skillcard {
+  max-width: 257px;
+  padding: 20px 0;
+}
+
+.about__story {
+  line-height: 1.3;
+}
+
+.skill__icon {
+  height: 74px;
+  width: 74px;
+}
+
+.about__skillcard h4 {
+  padding: 20px 0
+}
+
+.about__techstack {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.techstack__img {
+  padding: 20px 0;
+  width: 74px;
+  transition: transform .7s ease-in-out;
+}
+
+.techstack__img:hover {
+  transform: rotateY(360deg);
+}
+
+
+//////////////////// RESUME WRAPPER 
+
+.resume__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 50px;
+}
+
+.resume__column--one {
+  grid-area: 1/1;
+}
+
+.resume__column--two {
+  grid-area: 1/2;
+}
+
+.resume__column--three {
+  grid-area: 1/3;
+}
+
+.resume__jobs__wrapper {
+  margin: 30px 0;
+}
+
+.resume__job {
+  border-left: 0.5px solid whitesmoke;
+  padding-bottom: 20px;
+}
+
+
+.job__year {
+  background-color: #ff724c;
+  width: max-content;
+  padding: 5px 8px 5px 20px;
+  color: #FFF;
+}
+
+.job__texts {
+  margin: 20px 0 0 20px;
+}
+
+.job__name {
+  font-size: 1.2rem;
+}
+
+.job__subheadline {
+  margin-top: 5px;
+  color: #a5a5a5;
+}
+
+.job__description {
+  margin: 20px 0;
+  line-height: 1.3;
+} 
+
+.button {
+  margin: 50px 0;
+  padding: 0.8em 2em;
+  font-size: .875em;
+  background-color: transparent;
+  border: 2px solid #ff724c;
+  color: #222;
+}
+
+.button:hover {
+  background-color: #ff724c;
+  color: white;
+  transition: background-color 0.5s;
+}
+
+.job__skill__wrapper {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.job__skill__headline {
+  font-size: 0.8rem;
+}
+
+.job__bar {
+  background-color: transparent;
+  border: 1px solid #222;
+  width: 100%;
+  height: 12px;
+}
+
+.job__percentage {
+  background-color: #ff724c;
+  height: 8px;
+  margin: auto 0;
+  border: 2px solid white;
+  width: 90%;
+}
+
+.job__percentage--css {
+  width: 80%;
+}
+
+.job__percentage--js {
+  width: 50%;
+}
+
+.job__percentage--git {
+  width: 50%;
+}
+
+.job__percentage--copy {
+  width: 95%;
+}
+
+.job__percentage--idea,
+.job__percentage--some {
+  width: 80%;
+}
+
+.job__percentage--strat {
+  width: 50%;
+}
+
+
+//////////////////// RESUME WRAPPER 
+
+.main--contact {
+  flex-direction: column;
+}
+
+.button--contact {
+  padding: 0.8em 1.8em;
+  font-size: 1.275em;
+}
+
+/////////////// PROJECTS WRAPPER
+
+.projects__inner__wrapper {
+  margin: 50px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.projects__description {
+  text-align: center;
+}
+
+.projects__box {
+  position: relative;
+}
+
+.project__screen {
+  width: 500px;
+  height: auto;
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.project__screen__middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.projects__box:hover .project__screen {
+  opacity: 0.3;
+} 
+
+.projects__box:hover .project__screen__middle {
+  opacity: 1; 
+}
+
+.project__middle__button {
+  background-color: #ff724c;
+  color: white;
+  font-size: 16px;
+  padding: 16px 36px;
+}
