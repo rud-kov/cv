@@ -199,6 +199,8 @@ h1, h2, h3, h4, h5 {
 
 .home__headline__wrapper {
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .headline--big {
@@ -211,8 +213,6 @@ h1, h2, h3, h4, h5 {
   font-family: monospace;
   font-size: 2rem;
   position: relative;
-  width: -moz-max-content;
-  width: max-content;
   margin-top: 30px;
 }
 
@@ -301,14 +301,18 @@ h1, h2, h3, h4, h5 {
 
 .about__intro {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   flex-flow: row wrap;
+  gap: 50px;
   flex: 2;
 }
 
-.about__photo {
-  max-width: 353.53px;
-  max-height: 353.53px;
+.about__photo__wrapper {
+  background-image: url("images/icons/Ruda_Kolarik_upravene_web-1.jpg");
+  flex: 1;
+  background-position: center 15%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .about__description,
@@ -317,24 +321,12 @@ h1, h2, h3, h4, h5 {
   max-height: 376px;
 }
 
-.about__photo__wrapper {
-  margin: 0 15px 0 0;
-}
-
-.about__basics {
-  margin: 0 0 0 15px;
-}
-
 .about__right {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 50px;
   flex: 2;
   flex-flow: row wrap;
-  margin-left: auto;
-}
-
-.about__description {
-  margin: 0 15px;
 }
 
 .about__description p {
@@ -408,6 +400,7 @@ h1, h2, h3, h4, h5 {
 .about__skills__showcase {
   display: flex;
   gap: 10px;
+  flex-flow: row wrap;
   justify-content: space-around;
   text-align: center;
   line-height: 1.2;
@@ -442,13 +435,15 @@ h1, h2, h3, h4, h5 {
 
 .about__techstack {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
+  gap: 10px;
+  flex: 2;
   justify-content: space-around;
 }
 
 .techstack__img {
   padding: 20px 0;
-  width: 74px;
+  max-width: 74px;
   transition: transform 0.7s ease-in-out;
 }
 
@@ -457,23 +452,15 @@ h1, h2, h3, h4, h5 {
 }
 
 .resume__content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  -moz-column-gap: 50px;
-       column-gap: 50px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  gap: 80px;
 }
 
-.resume__column--one {
-  grid-area: 1/1;
-}
-
-.resume__column--two {
-  grid-area: 1/2;
-}
-
-.resume__column--three {
-  grid-area: 1/3;
+.resume__column {
+  flex: 2;
+  min-width: 150px;
 }
 
 .resume__jobs__wrapper {
@@ -604,7 +591,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .project__screen {
-  width: 500px;
+  max-width: 500px;
+  margin: 0 20px;
   height: auto;
   opacity: 1;
   display: block;
@@ -635,4 +623,87 @@ h1, h2, h3, h4, h5 {
   color: white;
   font-size: 16px;
   padding: 16px 36px;
+}
+
+.header--mobile {
+  display: none;
+  height: 70px;
+  background: #FFF;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.header--mobile__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.header--mobile__left,
+.header--mobile__right {
+  margin: 0 25px;
+}
+
+.header__name--mobile {
+  color: #555555;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "oxygen", sans-serif;
+}
+
+.mobile__hamburger {
+  width: 30px;
+}
+
+.hamburger__line {
+  gap: 10px;
+  display: block;
+  margin: 3px 0;
+  width: 100%;
+  height: 3px;
+  background-color: #ff724c;
+  font-size: 21px;
+}
+
+@media only screen and (max-width: 980px) {
+  body {
+    width: unset;
+    height: unset;
+  }
+  .page__wrapper {
+    display: block;
+  }
+  .header {
+    display: none;
+  }
+  .header--mobile {
+    display: block;
+  }
+  .main--home, .main--about, .main--resume,
+  .main--projects, .main--contact {
+    display: flex;
+  }
+  .main {
+    overflow: initial;
+    margin: 0 20px;
+    height: unset;
+  }
+  .main--home {
+    min-height: 90dvh;
+  }
+  .central__wrapper {
+    gap: 100px;
+    flex-direction: column;
+  }
+  .home__subheadline {
+    margin: 30px 0;
+  }
+  .headline--big--contact {
+    font-size: 38px;
+  }
+  .button--contact {
+    margin: 30px 0;
+    padding: 0.6em 1.4em;
+    font-size: 0.775em;
+  }
 }/*# sourceMappingURL=style.css.map */

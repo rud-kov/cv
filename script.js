@@ -6,7 +6,9 @@ console.log("Spirit of this Machine, heed my will");
 
 const textDisplay = document.querySelector(".home__subheadline");
 
-const phrases = ['I am a Coder', 'and a Copywriter', 'also an Idea Maker :)'];
+const phrasesFull = ['I am a Coder', 'and a Copywriter', 'also an Idea Maker'];
+
+const phrasesMobile = ['Coder', 'Copywriter', 'Idea Maker'];
 
 let i = 0;
 
@@ -19,7 +21,39 @@ let isDeleting = false;
 let isEnd = false;
 
 
+const getPhrase = () => {
+
+  let width = window.innerWidth;
+
+  if (width <= 980) {
+    return phrasesMobile;
+  } else {
+    return phrasesFull;
+  }
+}
+
+let phrases = getPhrase()
+
+
+const resetLoop = () => {
+
+  i = 0;
+  j = 0;
+  currentPhrase = []
+  isDeleting = false;
+
+  isEnd = false;
+
+  let phrases = getPhrase()
+  loop();
+}
+
+window.addEventListener("resize", resetLoop);
+
+
+
 const loop = () => {
+  
 
     isEnd = false
     textDisplay.innerHTML = currentPhrase.join('');
