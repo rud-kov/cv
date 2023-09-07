@@ -63,83 +63,38 @@ loop();
 
 ///////////////////////////////////////// TOGGLING MAIN ELEMENTS
 
+const main = document.querySelectorAll(".main");
 
-const home = document.querySelector(".main--home");
-
-const homeSwitch = document.querySelector(".header__link--intro");
-
-
-const about = document.querySelector(".main--about");
-
-const aboutSwitch = document.querySelector(".header__link--about");
+const switcher = document.querySelectorAll(".header__link");
 
 
-const resume = document.querySelector(".main--resume");
+let counter = 0
 
-const resumeSwitch = document.querySelector(".header__link--resume");
+switcher.forEach(function(element) {
 
+  element.addEventListener("click", function() {
 
-const contact = document.querySelector(".main--contact");
+    const target = element.getAttribute("data-target");
 
-const contactSwitch = document.querySelector(".header__link--contact");
+    main.forEach(function(div) {
 
-
-const projects = document.querySelector(".main--projects");
-
-const projectsSwitch = document.querySelector(".header__link--projects")
-
-
-const bringHomeUp = () => {
-
-
-    home.classList.toggle("main--home--closed");
-    about.classList.toggle("main--about--open");
-}
-
-
-const bringAboutUp = () => {
-
-    home.classList.toggle("main--home--closed");
-    about.classList.toggle("main--about--open");
-}
-
-
-const bringResumeUp = () => {
-
-    home.classList.add("main--home--closed");
-    about.classList.add("main--about--closed");
-
-    resume.classList.toggle("main--resume--open");
-}
-
-const bringContactUp = () => {
-
-    contact.classList.add("main--contact--open");
-
-    home.classList.add("main--home--closed");
-    about.classList.add("main--about--closed");
-    resume.classList.add("main--resume--closed");
-
-}
-
-const bringProjectsUp = () => {
-
-    projects.classList.add("main--projects--open");
-
-    home.classList.add("main--home--closed");
-    about.classList.add("main--about--closed");
-    resume.classList.add("main--resume--closed");
-    contact.classList.add("main--contact--closed");
-}
-
-
-projectsSwitch.addEventListener("click", bringProjectsUp);
-
-aboutSwitch.addEventListener("click", bringAboutUp);
-
-homeSwitch.addEventListener("click", bringHomeUp);
-
-resumeSwitch.addEventListener("click", bringResumeUp);
-
-contactSwitch.addEventListener("click", bringContactUp);
-
+      if (div.id === target) {
+        div.classList.remove("hide")
+        div.classList.add("show")
+        //div.classList.replace("hide", "show")
+        // div.classList.toggle("show")
+        setTimeout(function() {
+          div.style.display = "flex";
+        },700);
+      } else {
+        div.classList.remove("show")
+        div.classList.add("hide")
+        //div.classList.replace("show", "hide")
+        //div.classList.toggle("hide")
+        setTimeout(function() {
+          div.style.display = "none";
+        }, 700);
+      } 
+    });
+  });
+});
