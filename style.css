@@ -313,6 +313,8 @@ h1, h2, h3, h4, h5 {
   background-position: center 15%;
   background-size: cover;
   background-repeat: no-repeat;
+  min-width: 176px;
+  min-height: 306px;
 }
 
 .about__description,
@@ -592,10 +594,10 @@ h1, h2, h3, h4, h5 {
 
 .project__screen {
   max-width: 500px;
-  margin: 0 20px;
+  width: 100%;
   height: auto;
   opacity: 1;
-  display: block;
+  display: flex;
   transition: 0.5s ease;
   backface-visibility: hidden;
 }
@@ -670,6 +672,9 @@ h1, h2, h3, h4, h5 {
     width: unset;
     height: unset;
   }
+  .resume__content {
+    gap: initial;
+  }
   .page__wrapper {
     display: block;
   }
@@ -685,8 +690,20 @@ h1, h2, h3, h4, h5 {
   }
   .main {
     overflow: initial;
-    margin: 0 20px;
+    margin: 20px;
     height: unset;
+  }
+  .main__inner__wrapper {
+    padding: 20px;
+  }
+  .main__headline {
+    font-size: 48px;
+  }
+  .main__subline {
+    font-size: 12px;
+  }
+  .main__header::before {
+    display: none;
   }
   .main--home {
     min-height: 90dvh;

@@ -1,7 +1,6 @@
 console.log("Spirit of this Machine, heed my will");
 
 
-
 //////////////////////////////////////// HOMESCREEN WRITINGS
 
 const textDisplay = document.querySelector(".home__subheadline");
@@ -128,7 +127,28 @@ switcher.forEach(function(element) {
         setTimeout(function() {
           div.style.display = "none";
         }, 700);
-      } 
+      }
     });
   });
 });
+
+
+
+window.addEventListener("resize", function(event) {
+
+  let width = window.innerWidth;
+
+
+      main.forEach(function(div) {
+      
+      if (width < 980) {
+        main.div.classList.remove("show");
+        main.div.classList.add("hide");
+        main.div.style.display = "flex";
+      }
+    })
+});
+
+
+
+
