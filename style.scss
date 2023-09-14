@@ -197,10 +197,10 @@ h1, h2, h3, h4, h5 {
   margin: 50px;
 }
 
-.main--about, .main--resume,
-.main--projects, .main--contact {
-  display: none;
-}
+// .main--resume, .main--about, .main--projects, .main--contact {
+//   display: none;
+// }
+
 
 ///////////////////////////// HOME
 
@@ -251,11 +251,13 @@ h1, h2, h3, h4, h5 {
 .show {
     transform: scale(1) rotate(0);
     opacity: 1;
+    display: flex;
 }
    
 .hide {
    transform: scale(0.5);
    opacity: 0;
+   display: none;
 }
 
 //////////////////// ABOUT WRAPPER
@@ -650,11 +652,20 @@ h1, h2, h3, h4, h5 {
   padding: 16px 36px;
 }
 
+.headline--big--contact {
+  font-size: 45px;
+}
+
 
 ////////////// TABLET & MOBILE  
 
 .header--mobile {
   display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 500;
   height: 70px;
   background: #FFF;
   border-bottom: 1px solid whitesmoke;
@@ -665,13 +676,28 @@ h1, h2, h3, h4, h5 {
   justify-content: space-between;
   align-items: center;
   height: 70px;
-}
-
-
-.header--mobile__left,
-.header--mobile__right {
   margin: 0 25px;
+  z-index: 500;
 }
+
+.header__mobile__nav {
+  background-color: #FFFF;
+  margin-top: 1px;
+  text-align: center;
+  border-bottom: 1px solid whitesmoke;
+  transition: transform .5s ease-in-out;
+  z-index: 200;
+}
+
+
+.header__mobile__nav--open {
+  transform: translateY(300%);
+}
+
+.header__mobile__nav--closed {
+  transform: translateY(-300%);
+} 
+
 
 .header__name--mobile {
   color: #555555;
@@ -682,6 +708,11 @@ h1, h2, h3, h4, h5 {
 
 .mobile__hamburger {
   width: 30px;
+  padding: 20px;
+}
+
+.mobile__hamburger:hover {
+  cursor: pointer;
 }
 
 .hamburger__line {
@@ -692,6 +723,34 @@ h1, h2, h3, h4, h5 {
   height: 3px;
   background-color: #ff724c;
   font-size: 21px;
+}
+
+.hamburger__line--one {
+  transform: translateY(-8px);
+  animation-delay: 100ms;
+}
+
+.hamburger__line--three {
+  transform: translateY(8px);
+  animation-delay: 250ms;
+}
+
+.hamLineOneOpen {
+  transform: rotate(40deg);
+}
+
+.hamLineTwoOpen {
+  opacity: 0;
+}
+
+.hamLineThreeOpen {
+  transform: rotate(-40deg);
+}
+
+
+.header__mobile__ul li {
+  padding: 15px;
+  color: red;
 }
 
 /////////////////// QUERRIES 
@@ -707,6 +766,22 @@ h1, h2, h3, h4, h5 {
   .resume__content {
     gap: initial;
   }
+
+  .headline--big {
+    font-size: calc(39px + 15 * ((100vw - 320px) / 320));
+  }
+
+  .headline--big--contact {
+    font-size: calc(30px + 5 * ((100vw - 320px) / 320));
+  }
+
+  .home__subheadline,
+  .home__subheadline:empty,
+  .home__subheadline::after {
+    font-size: calc(1.4rem + 0.8 * ((100vw - 320px) / 320));
+    height: calc(1.4rem + 0.8 * ((100vw - 320px) / 320)); ;
+  }
+
 
   .page__wrapper {
     display: block;
@@ -754,16 +829,12 @@ h1, h2, h3, h4, h5 {
   .central__wrapper {
     gap: 100px;
     flex-direction: column;
+    background-size: auto;
   }
 
 
   .home__subheadline {
     margin: 30px 0;
-  }
-
-
-  .headline--big--contact {
-    font-size: 38px;
   }
 
   .button--contact {

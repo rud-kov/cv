@@ -1,13 +1,34 @@
 console.log("Spirit of this Machine, heed my will");
 
+/////////////////////////////////// HAMBURGER MENU 
+
+const hamburgerSwitch = () => {
+
+  mobileHeader.classList.toggle("header__mobile__nav--closed");
+
+  hamburgerLineOne.classList.toggle("hamLineOneOpen");
+
+  hamburgerLineTwo.classList.toggle("hamLineTwoOpen");
+
+  hamburgerLineThree.classList.toggle("hamLineThreeOpen");
+
+}
+
+const hamburger = document.querySelector(".mobile__hamburger").addEventListener("click", hamburgerSwitch);
+
+const hamburgerLineOne = document.querySelector("hamburger__line--one");
+
+const hamburgerLineTwo = document.querySelector("hamburger__line--two");
+
+const hamburgerLineThree = document.querySelector("hamburger__line--three")
+
+const mobileHeader = document.querySelector(".header__mobile__nav");
 
 //////////////////////////////////////// HOMESCREEN WRITINGS
 
 const textDisplay = document.querySelector(".home__subheadline");
 
-const phrasesFull = ['I am a Coder', 'and a Copywriter', 'also an Idea Maker'];
-
-const phrasesMobile = ['Coder', 'Copywriter', 'Idea Maker'];
+let phrases = ['I am a Coder', 'and a Copywriter', 'also an Idea Maker'];
 
 let i = 0;
 
@@ -20,42 +41,11 @@ let isDeleting = false;
 let isEnd = false;
 
 
-const getPhrase = () => {
-
-  let width = window.innerWidth;
-
-  if (width <= 980) {
-    return phrasesMobile;
-  } else {
-    return phrasesFull;
-  }
-}
-
-let phrases = getPhrase()
-
-
-const resetLoop = () => {
-
-  i = 0;
-  j = 0;
-  currentPhrase = []
-  isDeleting = false;
-
-  isEnd = false;
-
-  let phrases = getPhrase()
-  loop();
-}
-
-window.addEventListener("resize", resetLoop);
-
-
-
 const loop = () => {
   
-
     isEnd = false
     textDisplay.innerHTML = currentPhrase.join('');
+
   
     if (i < phrases.length) {
   
@@ -85,6 +75,8 @@ const loop = () => {
         }
       }
     }
+
+
     const spedUp = Math.random() * (50 -20) + 20
     const normalSpeed = Math.random() * (150 -50) + 50
     const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed
@@ -93,15 +85,11 @@ const loop = () => {
 
 loop();
 
-
 ///////////////////////////////////////// TOGGLING MAIN ELEMENTS
 
 const main = document.querySelectorAll(".main");
 
 const switcher = document.querySelectorAll(".header__link");
-
-
-let counter = 0
 
 switcher.forEach(function(element) {
 
@@ -112,43 +100,32 @@ switcher.forEach(function(element) {
     main.forEach(function(div) {
 
       if (div.id === target) {
-        div.classList.remove("hide")
-        div.classList.add("show")
-        //div.classList.replace("hide", "show")
-        // div.classList.toggle("show")
-        setTimeout(function() {
-          div.style.display = "flex";
-        },700);
+        div.classList.replace("hide", "show");
+        //setTimeout(function() {
+        //  div.style.display = "flex";
+        //},700);
       } else {
-        div.classList.remove("show")
-        div.classList.add("hide")
-        //div.classList.replace("show", "hide")
-        //div.classList.toggle("hide")
-        setTimeout(function() {
-          div.style.display = "none";
-        }, 700);
+        div.classList.replace("show", "hide");
+        //setTimeout(function() {
+        //  div.style.display = "none";
+        //}, 700);
       }
     });
   });
 });
 
+const mediaQuery = window.matchMedia("(max-width: 980px)");
 
-
-window.addEventListener("resize", function(event) {
-
-  let width = window.innerWidth;
-
+mediaQuery.addEventListener("change", function(event) {
 
       main.forEach(function(div) {
       
-      if (width < 980) {
-        main.div.classList.remove("show");
-        main.div.classList.add("hide");
-        main.div.style.display = "flex";
+      if (mediaQuery.matches) {
+        div.classList.replace("hide", "show");
+      } else {
+          if (div.id !== "main1") { 
+        div.classList.replace("show", "hide");
       }
-    })
+    }
+  })
 });
-
-
-
-
