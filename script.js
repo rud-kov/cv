@@ -11,16 +11,15 @@ const hamburgerSwitch = () => {
   hamburgerLineTwo.classList.toggle("hamLineTwoOpen");
 
   hamburgerLineThree.classList.toggle("hamLineThreeOpen");
-
-}
+};
 
 const hamburger = document.querySelector(".mobile__hamburger").addEventListener("click", hamburgerSwitch);
 
-const hamburgerLineOne = document.querySelector("hamburger__line--one");
+const hamburgerLineOne = document.querySelector(".hamburger__line--one");
 
-const hamburgerLineTwo = document.querySelector("hamburger__line--two");
+const hamburgerLineTwo = document.querySelector(".hamburger__line--two");
 
-const hamburgerLineThree = document.querySelector("hamburger__line--three")
+const hamburgerLineThree = document.querySelector(".hamburger__line--three");
 
 const mobileHeader = document.querySelector(".header__mobile__nav");
 
@@ -76,7 +75,6 @@ const loop = () => {
       }
     }
 
-
     const spedUp = Math.random() * (50 -20) + 20
     const normalSpeed = Math.random() * (150 -50) + 50
     const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed
@@ -86,6 +84,7 @@ const loop = () => {
 loop();
 
 ///////////////////////////////////////// TOGGLING MAIN ELEMENTS
+
 
 const main = document.querySelectorAll(".main");
 
@@ -100,32 +99,35 @@ switcher.forEach(function(element) {
     main.forEach(function(div) {
 
       if (div.id === target) {
-        div.classList.replace("hide", "show");
-        //setTimeout(function() {
-        //  div.style.display = "flex";
-        //},700);
+        div.style.display = "flex";
       } else {
-        div.classList.replace("show", "hide");
-        //setTimeout(function() {
-        //  div.style.display = "none";
-        //}, 700);
+        div.style.display = "none";
       }
     });
   });
 });
 
-const mediaQuery = window.matchMedia("(max-width: 980px)");
 
-mediaQuery.addEventListener("change", function(event) {
+const contact = document.querySelector(".main--contact");
 
+if (matchMedia) {
+  const mq = window.matchMedia("(max-width: 980px)");
+  mq.addEventListener("change", WidthChange);
+  WidthChange(mq);
+}
+
+function WidthChange(mq) {
+
+  if (mq.matches) {
+    main.forEach(function(div) {
+      div.style.display = "flex";
+      contact.style.display = "none";
+    });
+  } else {
       main.forEach(function(div) {
-      
-      if (mediaQuery.matches) {
-        div.classList.replace("hide", "show");
-      } else {
-          if (div.id !== "main1") { 
-        div.classList.replace("show", "hide");
-      }
-    }
-  })
-});
+        if (div.id !== "main1") { 
+          div.style.display = "none";
+        }
+      });
+  }
+};

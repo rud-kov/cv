@@ -197,10 +197,9 @@ h1, h2, h3, h4, h5 {
   margin: 50px;
 }
 
-// .main--resume, .main--about, .main--projects, .main--contact {
-//   display: none;
-// }
-
+.main--resume, .main--about, .main--projects, .main--contact {
+  display: none;
+}
 
 ///////////////////////////// HOME
 
@@ -226,7 +225,6 @@ h1, h2, h3, h4, h5 {
   font-size: 2rem;
   position: relative;
   margin-top: 30px;
-  //width: max-content;
 }
 
 .home__subheadline:empty {
@@ -248,18 +246,6 @@ h1, h2, h3, h4, h5 {
   animation: blink 800ms infinite;
 }
  
-.show {
-    transform: scale(1) rotate(0);
-    opacity: 1;
-    display: flex;
-}
-   
-.hide {
-   transform: scale(0.5);
-   opacity: 0;
-   display: none;
-}
-
 //////////////////// ABOUT WRAPPER
 
 
@@ -322,17 +308,17 @@ h1, h2, h3, h4, h5 {
   justify-content: flex-start;
   flex-flow: row wrap;
   gap: 50px;
-  flex: 2;
 }
 
 .about__photo__wrapper {
   background-image: url("images/icons/Ruda_Kolarik_upravene_web-1.jpg");
-  flex: 1;
+  flex: 2;
   background-position: center 15%;
   background-size: cover;
   background-repeat: no-repeat;
   min-width: 176px;
   min-height: 306px;
+  max-width: 400px;
 }
 
 
@@ -479,12 +465,16 @@ h1, h2, h3, h4, h5 {
   display: flex;
   justify-content: space-between;
   flex-flow: row wrap;
-  gap: 80px;
+  gap: 100px;
 }
 
 .resume__column {
   flex: 2;
   min-width: 150px;
+}
+
+.resume__column--two {
+  margin: 0 20px;
 }
 
 .resume__jobs__wrapper {
@@ -571,10 +561,13 @@ h1, h2, h3, h4, h5 {
   width: 80%;
 }
 
-.job__percentage--js,
 .job__percentage--git,
 .job__percentage--strat {
   width: 50%;
+}
+
+.job__percentage--js {
+  width: 30%;
 }
 
 .job__percentage--copy {
@@ -689,6 +682,9 @@ h1, h2, h3, h4, h5 {
   z-index: 200;
 }
 
+.contact__orange {
+  color: #ff724c;
+}
 
 .header__mobile__nav--open {
   transform: translateY(300%);
@@ -697,7 +693,6 @@ h1, h2, h3, h4, h5 {
 .header__mobile__nav--closed {
   transform: translateY(-300%);
 } 
-
 
 .header__name--mobile {
   color: #555555;
@@ -716,14 +711,13 @@ h1, h2, h3, h4, h5 {
 }
 
 .hamburger__line {
-  gap: 10px;
-  display: block;
-  margin: 3px 0;
-  width: 100%;
+  position: absolute;
+  width: 32px;
   height: 3px;
   background-color: #ff724c;
-  font-size: 21px;
+  transition: all 400ms cubic-bezier(.84,.06,.52,1.8);
 }
+
 
 .hamburger__line--one {
   transform: translateY(-8px);
@@ -747,14 +741,13 @@ h1, h2, h3, h4, h5 {
   transform: rotate(-40deg);
 }
 
-
 .header__mobile__ul li {
   padding: 15px;
+  font-size: 14px;
   color: red;
 }
 
 /////////////////// QUERRIES 
-
 
 @media only screen and (max-width: 980px) {
 
@@ -782,22 +775,12 @@ h1, h2, h3, h4, h5 {
     height: calc(1.4rem + 0.8 * ((100vw - 320px) / 320)); ;
   }
 
-
   .page__wrapper {
     display: block;
   }
 
-  .header {
-    display: none;
-  }
-
   .header--mobile {
     display: block;
-  }
-
-  .main--home, .main--about, .main--resume,
-  .main--projects, .main--contact {
-    display: flex;
   }
 
   .main {
@@ -810,6 +793,10 @@ h1, h2, h3, h4, h5 {
     padding: 20px;
   }
 
+  .about__photo__wrapper {
+    max-height: unset;
+  }
+
   .main__headline {
     font-size: 48px;
   }
@@ -818,7 +805,8 @@ h1, h2, h3, h4, h5 {
     font-size: 12px;
   }
 
-  .main__header::before {
+  .main__header::before,
+  .header {
     display: none;
   }
 
@@ -831,7 +819,6 @@ h1, h2, h3, h4, h5 {
     flex-direction: column;
     background-size: auto;
   }
-
 
   .home__subheadline {
     margin: 30px 0;
