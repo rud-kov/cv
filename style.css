@@ -656,7 +656,8 @@ h1, h2, h3, h4, h5 {
   margin-top: 1px;
   text-align: center;
   border-bottom: 1px solid whitesmoke;
-  transition: transform 0.5s ease-in-out;
+  animation: opening 350ms;
+  display: block;
   z-index: -5;
 }
 
@@ -664,12 +665,27 @@ h1, h2, h3, h4, h5 {
   color: #ff724c;
 }
 
-.header__mobile__nav--open {
-  transform: translateY(300%);
+@keyframes closing {
+  from {
+    display: block;
+  }
+  to {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
 }
-
+@keyframes opening {
+  from {
+    display: none;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
 .header__mobile__nav--closed {
-  transform: translateY(-300%);
+  animation: closing 350ms;
+  display: none;
 }
 
 .header__name--mobile {
