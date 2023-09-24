@@ -355,13 +355,12 @@ h1, h2, h3, h4, h5 {
 }
 
 .about__icon {
-  width: 16px;
-  border: 1px solid #767676;
+  width: 18px;
   padding: 5px;
 }
 
 .about__icon:hover {
-  background-color: rgb(255, 114, 76);
+  transform: scale(1.1);
 }
 
 .section__headline {
@@ -399,7 +398,7 @@ h1, h2, h3, h4, h5 {
 
 .about__skillcard {
   max-width: 257px;
-  padding: 20px 0 0 0;
+  padding: 20px 15px 0;
 }
 
 .about__story {
@@ -582,6 +581,7 @@ h1, h2, h3, h4, h5 {
 
 .projects__description {
   text-align: center;
+  font-size: 14px;
 }
 
 .projects__box {
@@ -635,8 +635,9 @@ h1, h2, h3, h4, h5 {
   left: 0;
   z-index: 500;
   height: 70px;
-  background: #FFF;
   border-bottom: 1px solid whitesmoke;
+  background-color: white;
+  z-index: 500;
 }
 
 .header--mobile__topbar {
@@ -646,6 +647,8 @@ h1, h2, h3, h4, h5 {
   height: 70px;
   margin: 0 25px;
   z-index: 500;
+  position: relative;
+  background-color: white;
 }
 
 .header__mobile__nav {
@@ -654,7 +657,7 @@ h1, h2, h3, h4, h5 {
   text-align: center;
   border-bottom: 1px solid whitesmoke;
   transition: transform 0.5s ease-in-out;
-  z-index: 200;
+  z-index: -5;
 }
 
 .contact__orange {

@@ -69,6 +69,13 @@ h1, h2, h3, h4, h5 {
 
 /////////////////////////////////// MIXINS /////
 
+@mixin primaryColor {
+  color: #ff724c;
+}
+
+@mixin backgroundColor {
+  background-color: #ff724c;
+}
 
 /////////////////////////////////// HEADER AND MENU /////
 
@@ -106,7 +113,7 @@ h1, h2, h3, h4, h5 {
 
 .header__name {
   text-align: center;
-  color: #ff724c;
+  @include primaryColor();
   line-height: 1.2;
   font-family: Helvetica;
   font-size: 1.5rem;
@@ -138,7 +145,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .header__tile:hover::after {
-  background-color: #ff724c; 
+  @include backgroundColor();
   content: "";
   position: absolute;
   width: 3px;
@@ -168,7 +175,7 @@ h1, h2, h3, h4, h5 {
   display: grid;
   grid-template-columns: 150px 1fr;
   grid-template-rows: 1fr;
-  height: 100%;
+  height: 100%; 
 }
 
 .central__wrapper {
@@ -217,7 +224,7 @@ h1, h2, h3, h4, h5 {
 .headline--big {
   font-size: 60px;
   text-align: center;
-  color: #ff724c;
+  @include primaryColor();
 }
 
 .home__subheadline {
@@ -296,7 +303,7 @@ h1, h2, h3, h4, h5 {
 
 .main__subline {
   color: white;
-  background-color: #ff724c;
+  @include backgroundColor();
   padding: 5px 10px;
   width: max-content;
   margin-left: auto;
@@ -362,7 +369,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .nav__span__mail {
-  color: #ff724c;;
+  @include primaryColor();
 }
 
 
@@ -373,13 +380,12 @@ h1, h2, h3, h4, h5 {
 }
 
 .about__icon {
-  width: 16px;
-  border: 1px solid #767676;
+  width: 18px;
   padding: 5px;
 }
 
 .about__icon:hover {
-  background-color: rgba(255, 114, 76, 1)
+  transform: scale(1.1);
 }
 
 .section__headline {
@@ -402,7 +408,7 @@ h1, h2, h3, h4, h5 {
   height: 100%;
   left: -10px;
   bottom: 0;
-  background-color: #ff724c;
+  @include backgroundColor();
 }
 
 .about__skills__showcase {
@@ -416,7 +422,7 @@ h1, h2, h3, h4, h5 {
 
 .about__skillcard {
   max-width: 257px;
-  padding: 20px 0 0 0;
+  padding: 20px 15px 0;
 }
 
 .about__story {
@@ -487,7 +493,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .job__year {
-  background-color: #ff724c;
+  @include backgroundColor();
   width: max-content;
   padding: 5px 8px 5px 20px;
   color: #FFF;
@@ -525,7 +531,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .button:hover {
-  background-color: #ff724c;
+  @include backgroundColor();
   color: white;
   transition: background-color 0.5s;
 }
@@ -550,7 +556,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .job__percentage {
-  background-color: #ff724c;
+  @include backgroundColor();
   height: 8px;
   margin: auto 0;
   border: 2px solid white;
@@ -604,6 +610,7 @@ h1, h2, h3, h4, h5 {
 
 .projects__description {
   text-align: center;
+  font-size: 14px;
 }
 
 .projects__box {
@@ -639,7 +646,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .project__middle__button {
-  background-color: #ff724c;
+  @include backgroundColor();
   color: white;
   font-size: 16px;
   padding: 16px 36px;
@@ -660,8 +667,9 @@ h1, h2, h3, h4, h5 {
   left: 0;
   z-index: 500;
   height: 70px;
-  background: #FFF;
   border-bottom: 1px solid whitesmoke;
+  background-color: #FFFF;
+  z-index: 500;
 }
 
 .header--mobile__topbar {
@@ -671,6 +679,8 @@ h1, h2, h3, h4, h5 {
   height: 70px;
   margin: 0 25px;
   z-index: 500;
+  position: relative;
+  background-color: #FFFF;
 }
 
 .header__mobile__nav {
@@ -679,11 +689,11 @@ h1, h2, h3, h4, h5 {
   text-align: center;
   border-bottom: 1px solid whitesmoke;
   transition: transform .5s ease-in-out;
-  z-index: 200;
+  z-index: -5;
 }
 
 .contact__orange {
-  color: #ff724c;
+  @include primaryColor();
 }
 
 .header__mobile__nav--open {
@@ -714,7 +724,7 @@ h1, h2, h3, h4, h5 {
   position: absolute;
   width: 32px;
   height: 3px;
-  background-color: #ff724c;
+  @include backgroundColor();
   transition: all 400ms cubic-bezier(.84,.06,.52,1.8);
 }
 

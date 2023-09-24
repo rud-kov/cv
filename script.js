@@ -4,7 +4,7 @@ console.log("Spirit of this Machine, heed my will");
 
 const hamburgerSwitch = () => {
 
-  mobileHeader.classList.toggle("header__mobile__nav--closed");
+  mobileNav.classList.toggle("header__mobile__nav--closed");
 
   hamburgerLineOne.classList.toggle("hamLineOneOpen");
 
@@ -21,7 +21,32 @@ const hamburgerLineTwo = document.querySelector(".hamburger__line--two");
 
 const hamburgerLineThree = document.querySelector(".hamburger__line--three");
 
-const mobileHeader = document.querySelector(".header__mobile__nav");
+const mobileNav = document.querySelector(".header__mobile__nav");
+
+
+///////////////// HEADER ROLL_UP & DOWN /////////////
+
+
+let lastScrollPosition = 0;
+
+window.addEventListener("scroll", () => {
+
+  let currentScrollPosition = window.pageYOffset;
+
+  if (currentScrollPosition > 215 && currentScrollPosition > lastScrollPosition) {
+    mobileHeader.style.transform = "translateY(-200px)";
+    // console.log("currentscroll", currentScrollPosition);
+    // console.log("lastscroll", lastScrollPosition);
+  } else {
+    mobileHeader.style.transform = "translateY(0)";
+  }
+
+  lastScrollPosition = currentScrollPosition;
+});
+
+const mobileHeader = document.querySelector(".header--mobile");
+
+
 
 //////////////////////////////////////// HOMESCREEN WRITINGS
 
