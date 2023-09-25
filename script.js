@@ -124,35 +124,55 @@ switcher.forEach(function(element) {
     main.forEach(function(div) {
 
       if (div.id === target) {
-        div.style.display = "flex";
+        imOpenin(div); // ODSTRANIT HIDE A PRIDAT OPEN 
       } else {
-        div.style.display = "none";
+        div.classList.replace("open", "hide");
       }
     });
   });
 });
 
 
-const contact = document.querySelector(".main--contact");
 
-if (matchMedia) {
-  const mq = window.matchMedia("(max-width: 980px)");
-  mq.addEventListener("change", WidthChange);
-  WidthChange(mq);
+
+const imOpenin = (div) => {
+  setTimeout(function() {
+    //div.classList.replace("hide", "open");
+    div.classList.remove("hide");
+    div.classList.add("open")
+  }, 550)
 }
 
-function WidthChange(mq) {
 
-  if (mq.matches) {
-    main.forEach(function(div) {
-      div.style.display = "flex";
-      contact.style.display = "none";
-    });
-  } else {
-      main.forEach(function(div) {
-        if (div.id !== "main1") { 
-          div.style.display = "none";
-        }
-      });
-  }
-};
+const imHidden = (div) => {
+  setTimeout(function() {
+    div.classList.remove("hide");
+  }, 550)
+}
+
+
+
+const contact = document.querySelector(".main--contact");
+
+// if (matchMedia) {
+//   const mq = window.matchMedia("(max-width: 980px)");
+//   mq.addEventListener("change", WidthChange);
+//   WidthChange(mq);
+// }
+// 
+// function WidthChange(mq) {
+// 
+//   if (mq.matches) {
+//     main.forEach(function(div) {
+//       div.style.display = "flex";
+//       contact.style.display = "none";
+//     });
+//   } else {
+//       main.forEach(function(div) {
+//         if (div.id !== "main1") { 
+//           div.style.display = "none";
+//           console.log("jebat pica mrdat")
+//         }
+//       });
+//   }
+// };
