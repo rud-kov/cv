@@ -2,18 +2,22 @@ console.log("Spirit of this Machine, heed my will");
 
 /////////////////////////////////// HAMBURGER MENU 
 
-const hamburgerSwitch = () => {
+const hamburgerOpen = () => {
 
   mobileNav.classList.toggle("header__mobile__nav--closed");
-
   hamburgerLineOne.classList.toggle("hamLineOneOpen");
-
   hamburgerLineTwo.classList.toggle("hamLineTwoOpen");
-
   hamburgerLineThree.classList.toggle("hamLineThreeOpen");
 };
 
-const hamburger = document.querySelector(".mobile__hamburger").addEventListener("click", hamburgerSwitch);
+const hamburgerClose = () => {
+  mobileNav.classList.add("header__mobile__nav--closed");
+  hamburgerLineOne.classList.remove("hamLineOneOpen");
+  hamburgerLineTwo.classList.remove("hamLineTwoOpen");
+  hamburgerLineThree.classList.remove("hamLineThreeOpen"); 
+}
+
+const hamburger = document.querySelector(".mobile__hamburger").addEventListener("click", hamburgerOpen);
 
 const hamburgerLineOne = document.querySelector(".hamburger__line--one");
 
@@ -22,7 +26,6 @@ const hamburgerLineTwo = document.querySelector(".hamburger__line--two");
 const hamburgerLineThree = document.querySelector(".hamburger__line--three");
 
 const mobileNav = document.querySelector(".header__mobile__nav");
-
 
 ///////////////// HEADER ROLL_UP & DOWN /////////////
 
@@ -34,19 +37,17 @@ window.addEventListener("scroll", () => {
   let currentScrollPosition = window.pageYOffset;
 
   if (currentScrollPosition > 215 && currentScrollPosition > lastScrollPosition) {
-    mobileHeader.style.transform = "translateY(-200px)";
-    // console.log("currentscroll", currentScrollPosition);
-    // console.log("lastscroll", lastScrollPosition);
+    mobileHeader.style.transform = "translateY(-600px)";
+    hamburgerClose();      
   } else {
     mobileHeader.style.transform = "translateY(0)";
+    hamburgerClose();   
   }
 
   lastScrollPosition = currentScrollPosition;
 });
 
 const mobileHeader = document.querySelector(".header--mobile");
-
-
 
 //////////////////////////////////////// HOMESCREEN WRITINGS
 
@@ -110,7 +111,6 @@ loop();
 
 ///////////////////////////////////////// TOGGLING MAIN ELEMENTS
 
-
 const main = document.querySelectorAll(".main");
 
 const switcher = document.querySelectorAll(".header__link");
@@ -124,7 +124,7 @@ switcher.forEach(function(element) {
     main.forEach(function(div) {
 
       if (div.id === target) {
-        imOpenin(div); // ODSTRANIT HIDE A PRIDAT OPEN 
+        imOpenin(div);
       } else {
         div.classList.replace("open", "hide");
       }
@@ -133,46 +133,41 @@ switcher.forEach(function(element) {
 });
 
 
-
-
 const imOpenin = (div) => {
   setTimeout(function() {
-    //div.classList.replace("hide", "open");
-    div.classList.remove("hide");
+    div.classList.remove("hide")
     div.classList.add("open")
   }, 550)
 }
 
-
-const imHidden = (div) => {
+const imHidin = (div) => {
   setTimeout(function() {
-    div.classList.remove("hide");
-  }, 550)
+    div.classList.remove("hideFast");
+    div.classList.add("hide");
+  }, 5)
 }
-
-
 
 const contact = document.querySelector(".main--contact");
 
-// if (matchMedia) {
-//   const mq = window.matchMedia("(max-width: 980px)");
-//   mq.addEventListener("change", WidthChange);
-//   WidthChange(mq);
-// }
-// 
-// function WidthChange(mq) {
-// 
-//   if (mq.matches) {
-//     main.forEach(function(div) {
-//       div.style.display = "flex";
-//       contact.style.display = "none";
-//     });
-//   } else {
-//       main.forEach(function(div) {
-//         if (div.id !== "main1") { 
-//           div.style.display = "none";
-//           console.log("jebat pica mrdat")
-//         }
-//       });
-//   }
-// };
+if (matchMedia) {
+  const mq = window.matchMedia("(max-width: 980px)");
+  mq.addEventListener("change", WidthChange);
+  WidthChange(mq); 
+}
+
+function WidthChange(mq) {
+
+  if (mq.matches) {
+    main.forEach(function(div) {
+      div.classList.replace("hide", "open")
+      contact.classList.replace("open", "hide");
+    });
+  } else {
+      main.forEach(function(div) {
+        if (div.id !== "main1") {
+          div.classList.replace("open", "hideFast");
+          imHidin(div);
+       }
+    })
+  }
+};

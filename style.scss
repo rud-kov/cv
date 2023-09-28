@@ -45,16 +45,11 @@ a:hover {
   border-spacing: border-box;
 }
 
-
 /////////////////////////////////// GENERAL STYLING /////
 
-html {
+html, body {
   height: 100%;
   font-family: 'Oxygen', 'Helvetica', sans-serif;
-}
-
-body {
-  height: 100%;
 }
 
 p {
@@ -65,6 +60,12 @@ p {
 
 h1, h2, h3, h4, h5 {
   color: #222222;
+}
+
+body {
+  background-color: #f5f5f5;
+  background-image: url("images/icons/main_bg_light.jpg");
+  background-size: cover;
 }
 
 /////////////////////////////////// MIXINS /////
@@ -93,7 +94,6 @@ h1, h2, h3, h4, h5 {
 
 .header__inner {
   display: flex;
-  flex: 2;
   flex-direction: column;
   margin: 0 auto 50px;
 }
@@ -132,7 +132,7 @@ h1, h2, h3, h4, h5 {
 
 .header__tile {
   text-align: center;
-  border-bottom: 0.5px solid whitesmoke;
+  border-bottom: 1px solid whitesmoke;
   height: 70px;
   display: flex;
   justify-content: center;
@@ -179,28 +179,19 @@ h1, h2, h3, h4, h5 {
 }
 
 .central__wrapper {
-  min-height: 100%;
-  height: 100%;
   grid-column: 2;
   grid-row: 1;
   display: flex;
   justify-content: center;
-  background-color: #f5f5f5;
-  background-image: url(images/icons/main_bg_light.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
+
 
 .main {
   max-width: 1300px;
-  height: 90%;
   display: flex;
-  z-index: 69;
-  flex: 2;
   background-color: #FFF;
   justify-content: center;
   align-content: center;
-  transition: all 700ms;
   margin: 50px;
 }
 
@@ -215,9 +206,12 @@ h1, h2, h3, h4, h5 {
   to {transform: translateY(40px); opacity: 0;}
 }
 
-
 .hide {
   animation: slideaway 550ms;
+  display: none;
+}
+
+.hideFast {
   display: none;
 }
 
@@ -227,12 +221,10 @@ h1, h2, h3, h4, h5 {
   to {opacity: 1;}
 }
 
-
 .open {
   animation: slidein 550ms;
   display: flex;
 }
-
 
 ///////////////////////////// HOME
 
@@ -249,19 +241,17 @@ h1, h2, h3, h4, h5 {
 
 .headline--big {
   font-size: 60px;
-  text-align: center;
   @include primaryColor();
 }
 
 .home__subheadline {
-  font-family: monospace;
-  font-size: 2rem;
+  font-size: 1.5rem;
   position: relative;
   margin-top: 30px;
 }
 
 .home__subheadline:empty {
-  height: 32px;
+  height: 1.5rem;
 }
 
 @keyframes blink {
@@ -273,7 +263,7 @@ h1, h2, h3, h4, h5 {
 .home__subheadline::after {
   content: '';
   position: absolute;
-  height: 2rem;
+  height: 1.5rem;
   width: 4px;
   background: black;
   animation: blink 800ms infinite;
@@ -281,18 +271,13 @@ h1, h2, h3, h4, h5 {
  
 //////////////////// ABOUT WRAPPER
 
-
 .main__wrapper {
   display: flex;
-  flex: 2;
   box-shadow: 0 1px 33px rgba(0,0,0,.15);
 }
 
-
 .main__inner__wrapper {
   padding: 20px 60px 50px;
-  margin: 0 auto;
-  flex: 2;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -556,6 +541,10 @@ h1, h2, h3, h4, h5 {
   white-space: nowrap;
 }
 
+.button--contact {
+  margin: 20px 0;
+}
+
 .button:hover {
   @include backgroundColor();
   color: white;
@@ -646,8 +635,6 @@ h1, h2, h3, h4, h5 {
 .project__screen {
   max-width: 500px;
   width: 100%;
-  height: auto;
-  opacity: 1;
   display: flex;
   transition: .5s ease;
   backface-visibility: hidden;
@@ -682,7 +669,6 @@ h1, h2, h3, h4, h5 {
   font-size: 45px;
 }
 
-
 ////////////// TABLET & MOBILE  
 
 .header--mobile {
@@ -691,7 +677,6 @@ h1, h2, h3, h4, h5 {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 500;
   height: 70px;
   border-bottom: 1px solid whitesmoke;
   background-color: #FFFF;
@@ -704,7 +689,6 @@ h1, h2, h3, h4, h5 {
   align-items: center;
   height: 70px;
   margin: 0 25px;
-  z-index: 500;
   position: relative;
   background-color: #FFFF;
 }
@@ -737,7 +721,6 @@ h1, h2, h3, h4, h5 {
   animation: closing 350ms;
   display: none;
 } 
-
 
 .header__name--mobile {
   color: #555555;
