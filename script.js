@@ -1,5 +1,3 @@
-console.log("Spirit of this Machine, heed my will");
-
 /////////////////////////////////// HAMBURGER MENU 
 
 const hamburgerOpen = () => {
@@ -26,8 +24,6 @@ const hamburgerLineTwo = document.querySelector(".hamburger__line--two");
 const hamburgerLineThree = document.querySelector(".hamburger__line--three");
 
 const mobileNav = document.querySelector(".header__mobile__nav");
-
-///////////////// HEADER ROLL_UP & DOWN /////////////
 
 
 let lastScrollPosition = 0;
@@ -64,7 +60,6 @@ let currentPhrase = [];
 let isDeleting = false;
 
 let isEnd = false;
-
 
 const loop = () => {
   

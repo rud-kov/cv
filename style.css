@@ -61,9 +61,12 @@ h1, h2, h3, h4, h5 {
 }
 
 body {
-  background-color: #f5f5f5;
   background-image: url("images/icons/main_bg_light.jpg");
   background-size: cover;
+}
+
+:root {
+  --primaryColor: #ff724c;
 }
 
 .header {
@@ -74,7 +77,7 @@ body {
   background-color: #FFF;
   top: 0;
   left: 0;
-  height: 100%;
+  min-height: 100%;
   width: 150px;
 }
 
@@ -82,9 +85,10 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto 50px;
+  flex: 2;
 }
 
-.header__me {
+.header__inner__container {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -99,7 +103,7 @@ body {
 
 .header__name {
   text-align: center;
-  color: #ff724c;
+  color: var(--primaryColor);
   line-height: 1.2;
   font-family: Helvetica;
   font-size: 1.5rem;
@@ -109,7 +113,7 @@ body {
 .header__links__ul {
   display: flex;
   flex-direction: column;
-  margin: 25px 0 30;
+  margin: 25px 0px 30px;
 }
 
 .header__links__ul:nth-child(1) {
@@ -131,7 +135,7 @@ body {
 }
 
 .header__tile:hover::after {
-  background-color: #ff724c;
+  background-color: var(--primaryColor);
   content: "";
   position: absolute;
   width: 3px;
@@ -167,6 +171,7 @@ body {
   grid-row: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .main {
@@ -226,7 +231,7 @@ body {
 
 .headline--big {
   font-size: 60px;
-  color: #ff724c;
+  color: var(--primaryColor);
 }
 
 .home__subheadline {
@@ -273,8 +278,8 @@ body {
   height: 75px;
   left: -10px;
   font-size: 5rem;
-  border-top: 3px solid #ff724c;
-  border-left: 3px solid #ff724c;
+  border-top: 3px solid var(--primaryColor);
+  border-left: 3px solid var(--primaryColor);
 }
 
 .main__header {
@@ -297,11 +302,11 @@ body {
 
 .main__subline {
   color: white;
-  background-color: #ff724c;
+  background-color: var(--primaryColor);
   padding: 5px 10px;
   width: -moz-max-content;
   width: max-content;
-  margin-left: auto;
+  margin: 8px 0 0 auto;
   font-size: 14px;
 }
 
@@ -313,7 +318,7 @@ body {
 }
 
 .about__photo__wrapper {
-  background-image: url("images/icons/Ruda_Kolarik_upravene_web-1.jpg");
+  background-image: url("images/icons/rk.jpeg");
   flex: 2;
   background-position: center 15%;
   background-size: cover;
@@ -357,12 +362,12 @@ body {
   margin: 10px 0;
   white-space: nowrap;
   display: inline;
-  border-bottom: 3px solid #ff724c;
+  border-bottom: 3px solid var(--primaryColor);
   font-weight: 700;
 }
 
 .nav__span__mail {
-  color: #ff724c;
+  color: var(--primaryColor);
 }
 
 .about__icons__container {
@@ -401,7 +406,7 @@ body {
   height: 100%;
   left: -10px;
   bottom: 0;
-  background-color: #ff724c;
+  background-color: var(--primaryColor);
 }
 
 .about__skills__showcase {
@@ -429,7 +434,6 @@ body {
 
 .skill__icon {
   height: 74px;
-  width: 74px;
 }
 
 .about__skillcard h4 {
@@ -484,7 +488,7 @@ body {
 }
 
 .job__year {
-  background-color: #ff724c;
+  background-color: var(--primaryColor);
   width: -moz-max-content;
   width: max-content;
   padding: 5px 8px 5px 20px;
@@ -517,7 +521,7 @@ body {
   padding: 0.8em 2em;
   font-size: 0.875em;
   background-color: transparent;
-  border: 2px solid #ff724c;
+  border: 2px solid var(--primaryColor);
   color: #222;
   white-space: nowrap;
 }
@@ -527,7 +531,7 @@ body {
 }
 
 .button:hover {
-  background-color: #ff724c;
+  background-color: var(--primaryColor);
   color: white;
   transition: background-color 0.5s;
 }
@@ -552,15 +556,11 @@ body {
 }
 
 .job__percentage {
-  background-color: #ff724c;
+  background-color: var(--primaryColor);
   height: 8px;
   margin: auto 0;
   border: 2px solid white;
   width: 90%;
-}
-
-.job__percentage--css {
-  width: 80%;
 }
 
 .job__percentage--git,
@@ -577,7 +577,8 @@ body {
 }
 
 .job__percentage--idea,
-.job__percentage--some {
+.job__percentage--some,
+.job__percentage--css {
   width: 80%;
 }
 
@@ -636,10 +637,11 @@ body {
 }
 
 .project__middle__button {
-  background-color: #ff724c;
+  background-color: var(--primaryColor);
   color: white;
   font-size: 16px;
   padding: 16px 36px;
+  white-space: nowrap;
 }
 
 .headline--big--contact {
@@ -666,6 +668,7 @@ body {
   margin: 0 25px;
   position: relative;
   background-color: white;
+  z-index: 420;
 }
 
 .header__mobile__nav {
@@ -674,12 +677,10 @@ body {
   text-align: center;
   border-bottom: 1px solid whitesmoke;
   animation: opening 350ms;
-  display: block;
-  z-index: -5;
 }
 
 .contact__orange {
-  color: #ff724c;
+  color: var(--primaryColor);
 }
 
 @keyframes closing {
@@ -725,7 +726,7 @@ body {
   position: absolute;
   width: 32px;
   height: 3px;
-  background-color: #ff724c;
+  background-color: var(--primaryColor);
   transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
 }
 
@@ -754,7 +755,6 @@ body {
 .header__mobile__ul li {
   padding: 15px;
   font-size: 14px;
-  color: red;
 }
 
 @media only screen and (max-width: 980px) {
@@ -766,7 +766,7 @@ body {
     gap: initial;
   }
   .headline--big {
-    font-size: calc(39px + 15 * (100vw - 320px) / 320);
+    font-size: calc(38px + 15 * (100vw - 320px) / 320);
   }
   .headline--big--contact {
     font-size: calc(30px + 5 * (100vw - 320px) / 320);
@@ -786,7 +786,7 @@ body {
   .main {
     overflow: initial;
     margin: 20px;
-    height: unset;
+    max-height: unset;
   }
   .main__inner__wrapper {
     padding: 20px;
