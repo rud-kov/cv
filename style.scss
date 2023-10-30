@@ -67,11 +67,22 @@ body {
   background-size: cover;
 }
 
-/////////////////////////////////// MIXINS /////
+/////////////////////////////////// MIXINS AND VARIABLES /////
 
 :root {
   --primaryColor: #ff724c;
 }
+
+@mixin tile__focused {
+  opacity: 1;
+  background-color: var(--primaryColor);
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 71px;
+  right: 0;
+}
+
 
 /////////////////////////////////// HEADER AND MENU /////
 
@@ -136,18 +147,24 @@ body {
   opacity: 0.7;
 }
 
+//// tady vymyslet 
+
 .header__tile:hover {
   opacity: initial;
 }
 
-.header__tile:hover::after {
-  background-color: var(--primaryColor);
-  content: "";
-  position: absolute;
-  width: 3px;
-  height: 71px;
-  right: 0;
+.header__tile--hovered {
+  opacity: initial;
 }
+
+.header__tile:hover::after {
+  @include tile__focused();
+}
+
+.header__tile--focused::after {
+  @include tile__focused();
+}
+
 
 .header__link {
   font-size: 0.8rem;

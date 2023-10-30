@@ -110,6 +110,10 @@ const main = document.querySelectorAll(".main");
 
 const switcher = document.querySelectorAll(".header__link");
 
+const tile = document.querySelectorAll(".header__tile");
+
+const headerTiles = document.querySelectorAll('.header_tile:nth-child(n+2)');
+
 switcher.forEach(function(element) {
 
   element.addEventListener("click", function() {
@@ -120,13 +124,13 @@ switcher.forEach(function(element) {
 
       if (div.id === target) {
         imOpenin(div);
+        tileSwitchOn(target);
       } else {
         div.classList.replace("open", "hide");
       }
     });
   });
 });
-
 
 const imOpenin = (div) => {
   setTimeout(function() {
@@ -135,12 +139,31 @@ const imOpenin = (div) => {
   }, 550)
 }
 
+
+const tileSwitchOn = (target) => {
+  tile.forEach(function(li) {
+    if (li.getAttribute("data-target") === target) {
+      li.classList.add("header__tile--focused", "header__tile--hovered"); 
+    } else {
+      li.classList.remove("header__tile--focused", "header__tile--hovered");
+    }
+  });
+}
+
+const tileSwitchOff = (li) => {
+  tile.forEach(function(li) {
+    li.classList.remove("header__tile--focused", "header__tile--hovered");
+  });
+};
+
+
 const imHidin = (div) => {
   setTimeout(function() {
     div.classList.remove("hideFast");
     div.classList.add("hide");
   }, 5)
 }
+
 
 const contact = document.querySelector(".main--contact");
 
@@ -163,6 +186,7 @@ function WidthChange(mq) {
           div.classList.replace("open", "hideFast");
           imHidin(div);
        }
+       tileSwitchOff()
     })
   }
 };

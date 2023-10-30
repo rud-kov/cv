@@ -134,7 +134,22 @@ body {
   opacity: initial;
 }
 
+.header__tile--hovered {
+  opacity: initial;
+}
+
 .header__tile:hover::after {
+  opacity: 1;
+  background-color: var(--primaryColor);
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 71px;
+  right: 0;
+}
+
+.header__tile--focused::after {
+  opacity: 1;
   background-color: var(--primaryColor);
   content: "";
   position: absolute;
