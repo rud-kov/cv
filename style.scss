@@ -74,7 +74,6 @@ body {
 }
 
 @mixin tile__focused {
-  opacity: 1;
   background-color: var(--primaryColor);
   content: "";
   position: absolute;
@@ -150,11 +149,11 @@ body {
 //// tady vymyslet 
 
 .header__tile:hover {
-  opacity: initial;
+  opacity: 1;
 }
 
 .header__tile--hovered {
-  opacity: initial;
+  opacity: 1;
 }
 
 .header__tile:hover::after {
@@ -237,6 +236,78 @@ body {
   animation: slidein 550ms;
   display: flex;
 }
+
+
+///// TOGGLING MAIN NEW!!!!! 
+
+
+@keyframes backInDown {
+  0% {
+    transform: translateY(-1200px) scale(.7);
+    opacity: .7;
+  }
+
+  80% {
+    transform: translateY(0px) scale(.7);
+    opacity: .7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.backInDown {
+  -webkit-animation: backInDown 1.5s;
+  animation: backInDown 1.5s;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+
+@-webkit-keyframes backOutDown {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  20% {
+    transform: translateY(0px) scale(.7);
+    opacity: .7;
+  }
+
+  100%   {
+    transform: translateY(700px) scale(.7);
+    opacity: .7;
+  }
+}
+
+@keyframes backOutDown {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  20% {
+    transform: translateY(0px) scale(.7);
+    opacity: .7;
+  }
+
+  100%   {
+    transform: translateY(700px) scale(.7);
+    opacity: .7;
+  }
+}
+
+.backOutDown {
+  -webkit-animation: backOutDown 1.5s;
+  animation: backOutDown 1.5s;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+
 
 ///////////////////////////// HOME
 

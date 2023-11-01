@@ -112,7 +112,7 @@ const switcher = document.querySelectorAll(".header__link");
 
 const tile = document.querySelectorAll(".header__tile");
 
-const headerTiles = document.querySelectorAll('.header_tile:nth-child(n+2)');
+const homeScreen = document.getElementById("homeScreen");
 
 switcher.forEach(function(element) {
 
@@ -139,6 +139,12 @@ const imOpenin = (div) => {
   }, 550)
 }
 
+const imHidin = (div) => {
+  setTimeout(function() {
+    div.classList.remove("hideFast");
+    div.classList.add("hide");
+  }, 5)
+}
 
 const tileSwitchOn = (target) => {
   tile.forEach(function(li) {
@@ -154,15 +160,8 @@ const tileSwitchOff = (li) => {
   tile.forEach(function(li) {
     li.classList.remove("header__tile--focused", "header__tile--hovered");
   });
+  homeScreen.classList.add("header__tile--focused", "header__tile--hovered");
 };
-
-
-const imHidin = (div) => {
-  setTimeout(function() {
-    div.classList.remove("hideFast");
-    div.classList.add("hide");
-  }, 5)
-}
 
 
 const contact = document.querySelector(".main--contact");
@@ -185,8 +184,8 @@ function WidthChange(mq) {
         if (div.id !== "main1") {
           div.classList.replace("open", "hideFast");
           imHidin(div);
+          tileSwitchOff();
        }
-       tileSwitchOff()
     })
   }
 };
