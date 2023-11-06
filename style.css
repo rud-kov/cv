@@ -130,10 +130,7 @@ body {
   opacity: 0.7;
 }
 
-.header__tile:hover {
-  opacity: 1;
-}
-
+.header__tile:hover,
 .header__tile--hovered {
   opacity: 1;
 }
@@ -196,42 +193,17 @@ body {
   margin: 50px;
 }
 
-.main--resume, .main--about, .main--projects, .main--contact {
-  display: none;
-}
-
-@keyframes slideaway {
-  from {
-    display: flex;
-  }
-  to {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-}
-.hide {
-  animation: slideaway 550ms;
-  display: none;
-}
-
-.hideFast {
-  display: none;
-}
-
-@keyframes slidein {
-  from {
-    display: none;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .open {
-  animation: slidein 550ms;
+  animation: animateOpening 750ms;
+  animation-timing-function: ease-out;
   display: flex;
 }
 
-@keyframes backInDown {
+.openNoAnimation {
+  display: flex;
+}
+
+@keyframes animateOpening {
   0% {
     transform: translateY(-1200px) scale(0.7);
     opacity: 0.7;
@@ -245,11 +217,19 @@ body {
     opacity: 1;
   }
 }
-.backInDown {
-  animation: backInDown 1.5s;
+.hideAnimation {
+  animation: animateClosing 750ms;
   animation-timing-function: ease-out;
 }
-@keyframes backOutDown {
+
+.displayOff {
+  display: none;
+}
+
+@keyframes animateClosing {
+  from {
+    display: flex;
+  }
   0% {
     transform: scale(1);
     opacity: 1;
@@ -263,11 +243,6 @@ body {
     opacity: 0.7;
   }
 }
-.backOutDown {
-  animation: backOutDown 1.5s;
-  animation-timing-function: ease-out;
-}
-
 .main--transparent {
   background-color: transparent;
   align-items: center;

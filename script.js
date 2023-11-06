@@ -1,7 +1,6 @@
 /////////////////////////////////// HAMBURGER MENU 
 
 const hamburgerOpen = () => {
-
   mobileNav.classList.toggle("header__mobile__nav--closed");
   hamburgerLineOne.classList.toggle("hamLineOneOpen");
   hamburgerLineTwo.classList.toggle("hamLineTwoOpen");
@@ -14,17 +13,6 @@ const hamburgerClose = () => {
   hamburgerLineTwo.classList.remove("hamLineTwoOpen");
   hamburgerLineThree.classList.remove("hamLineThreeOpen"); 
 }
-
-const hamburger = document.querySelector(".mobile__hamburger").addEventListener("click", hamburgerOpen);
-
-const hamburgerLineOne = document.querySelector(".hamburger__line--one");
-
-const hamburgerLineTwo = document.querySelector(".hamburger__line--two");
-
-const hamburgerLineThree = document.querySelector(".hamburger__line--three");
-
-const mobileNav = document.querySelector(".header__mobile__nav");
-
 
 let lastScrollPosition = 0;
 
@@ -39,9 +27,18 @@ window.addEventListener("scroll", () => {
     mobileHeader.style.transform = "translateY(0)";
     hamburgerClose();   
   }
-
   lastScrollPosition = currentScrollPosition;
 });
+
+const hamburger = document.querySelector(".mobile__hamburger").addEventListener("click", hamburgerOpen);
+
+const hamburgerLineOne = document.querySelector(".hamburger__line--one");
+
+const hamburgerLineTwo = document.querySelector(".hamburger__line--two");
+
+const hamburgerLineThree = document.querySelector(".hamburger__line--three");
+
+const mobileNav = document.querySelector(".header__mobile__nav");
 
 const mobileHeader = document.querySelector(".header--mobile");
 
@@ -65,7 +62,6 @@ const loop = () => {
   
     isEnd = false
     textDisplay.innerHTML = currentPhrase.join('');
-
   
     if (i < phrases.length) {
   
@@ -114,6 +110,8 @@ const tile = document.querySelectorAll(".header__tile");
 
 const homeScreen = document.getElementById("homeScreen");
 
+const contact = document.querySelector(".main--contact");
+
 switcher.forEach(function(element) {
 
   element.addEventListener("click", function() {
@@ -123,27 +121,33 @@ switcher.forEach(function(element) {
     main.forEach(function(div) {
 
       if (div.id === target) {
-        imOpenin(div);
+        Opening(div);
         tileSwitchOn(target);
       } else {
-        div.classList.replace("open", "hide");
+        Hiding(div);
       }
     });
   });
 });
 
-const imOpenin = (div) => {
+const Opening = (div) => {
   setTimeout(function() {
-    div.classList.remove("hide")
+    div.classList.remove("hideAnimation", "displayOff")
     div.classList.add("open")
-  }, 550)
+  }, 750)
 }
 
-const imHidin = (div) => {
+const Hiding = (div) => {
+  div.classList.replace("open", "hideAnimation");
   setTimeout(function() {
-    div.classList.remove("hideFast");
-    div.classList.add("hide");
-  }, 5)
+    div.classList.add("displayOff");
+  }, 750)
+}
+
+
+const hideFast = (div) => {
+  div.classList.remove("open", "openNoAnimation", "hideAnimation");
+  div.classList.add("displayOff");
 }
 
 const tileSwitchOn = (target) => {
@@ -163,27 +167,24 @@ const tileSwitchOff = (li) => {
   homeScreen.classList.add("header__tile--focused", "header__tile--hovered");
 };
 
-
-const contact = document.querySelector(".main--contact");
-
 if (matchMedia) {
   const mq = window.matchMedia("(max-width: 980px)");
-  mq.addEventListener("change", WidthChange);
-  WidthChange(mq); 
+  mq.addEventListener("change", widthChange);
+  widthChange(mq); 
 }
 
-function WidthChange(mq) {
+function widthChange(mq) {
 
   if (mq.matches) {
     main.forEach(function(div) {
-      div.classList.replace("hide", "open")
-      contact.classList.replace("open", "hide");
+      div.classList.remove("hideAnimation", "displayOff");
+      div.classList.add("openNoAnimation");
+      contact.classList.replace("openNoAnimation", "displayOff");
     });
   } else {
       main.forEach(function(div) {
         if (div.id !== "main1") {
-          div.classList.replace("open", "hideFast");
-          imHidin(div);
+          hideFast(div);
           tileSwitchOff();
        }
     })
