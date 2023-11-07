@@ -19,10 +19,6 @@ time, mark, audio, video {
   background: transparent;
 }
 
-body {
-  line-height: 1;
-}
-
 nav ul, nav li {
   list-style: none;
 }
@@ -63,6 +59,7 @@ h1, h2, h3, h4, h5 {
 body {
   background-image: url("images/icons/main_bg_light.jpg");
   background-size: cover;
+  line-height: 1;
 }
 
 :root {
@@ -193,6 +190,82 @@ body {
   margin: 50px;
 }
 
+.main__wrapper {
+  display: flex;
+  box-shadow: 0 1px 33px rgba(0, 0, 0, 0.15);
+}
+
+.main__inner__wrapper {
+  padding: 20px 60px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  overflow: scroll;
+}
+
+.main__header::before {
+  content: "";
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  left: -10px;
+  font-size: 5rem;
+  border-top: 3px solid var(--primaryColor);
+  border-left: 3px solid var(--primaryColor);
+}
+
+.main__header {
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.main__header__content {
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.main__headline {
+  color: rgba(238, 238, 238, 0.9333333333);
+  font-size: 60px;
+}
+
+.main__subline {
+  color: white;
+  background-color: var(--primaryColor);
+  padding: 5px 10px;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 8px 0 0 auto;
+  font-size: 14px;
+}
+
+.section__headline {
+  font-size: 1.17em;
+  align-content: center;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+
+.section__heading {
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.section__heading::before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 2px;
+  height: 100%;
+  left: -10px;
+  bottom: 0;
+  background-color: var(--primaryColor);
+}
+
 .open {
   animation: animateOpening 750ms;
   animation-timing-function: ease-out;
@@ -283,58 +356,6 @@ body {
   animation: blink 800ms infinite;
 }
 
-.main__wrapper {
-  display: flex;
-  box-shadow: 0 1px 33px rgba(0, 0, 0, 0.15);
-}
-
-.main__inner__wrapper {
-  padding: 20px 60px 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  overflow: scroll;
-}
-
-.main__header::before {
-  content: "";
-  position: absolute;
-  width: 75px;
-  height: 75px;
-  left: -10px;
-  font-size: 5rem;
-  border-top: 3px solid var(--primaryColor);
-  border-left: 3px solid var(--primaryColor);
-}
-
-.main__header {
-  margin: 0 auto;
-  position: relative;
-  text-align: center;
-  width: 100%;
-}
-
-.main__header__content {
-  width: -moz-max-content;
-  width: max-content;
-  margin: 0 auto;
-}
-
-.main__headline {
-  color: rgba(238, 238, 238, 0.9333333333);
-  font-size: 60px;
-}
-
-.main__subline {
-  color: white;
-  background-color: var(--primaryColor);
-  padding: 5px 10px;
-  width: -moz-max-content;
-  width: max-content;
-  margin: 8px 0 0 auto;
-  font-size: 14px;
-}
-
 .about__intro {
   display: flex;
   justify-content: flex-start;
@@ -408,30 +429,6 @@ body {
 
 .about__icon:hover {
   transform: scale(1.1);
-}
-
-.section__headline {
-  font-size: 1.17em;
-  align-content: center;
-  max-height: -moz-fit-content;
-  max-height: fit-content;
-}
-
-.section__heading {
-  height: 28px;
-  display: flex;
-  align-items: center;
-}
-
-.section__heading::before {
-  content: "";
-  display: block;
-  position: relative;
-  width: 2px;
-  height: 100%;
-  left: -10px;
-  bottom: 0;
-  background-color: var(--primaryColor);
 }
 
 .about__skills__showcase {
@@ -607,15 +604,6 @@ body {
   width: 80%;
 }
 
-.main--contact {
-  flex-direction: column;
-}
-
-.contact__button__wrapper {
-  padding: 0.8em 1.8em;
-  font-size: 1.275em;
-}
-
 .projects__inner__wrapper {
   margin: 50px 0;
   display: flex;
@@ -669,6 +657,15 @@ body {
   white-space: nowrap;
 }
 
+.main--contact {
+  flex-direction: column;
+}
+
+.contact__button__wrapper {
+  padding: 0.8em 1.8em;
+  font-size: 1.275em;
+}
+
 .headline--big--contact {
   font-size: 45px;
 }
@@ -704,19 +701,6 @@ body {
   animation: opening 350ms;
 }
 
-.contact__orange {
-  color: var(--primaryColor);
-}
-
-@keyframes closing {
-  from {
-    display: block;
-  }
-  to {
-    transform: translateY(-200px);
-    opacity: 0;
-  }
-}
 @keyframes opening {
   from {
     display: none;
@@ -729,6 +713,19 @@ body {
 .header__mobile__nav--closed {
   animation: closing 350ms;
   display: none;
+}
+
+@keyframes closing {
+  from {
+    display: block;
+  }
+  to {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+}
+.contact__orange {
+  color: var(--primaryColor);
 }
 
 .header__name--mobile {
