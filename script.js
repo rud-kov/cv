@@ -1,19 +1,36 @@
-console.log("Spirit of this Machine, heed my will");
-
 /////////////////////////////////// HAMBURGER MENU 
 
-const hamburgerSwitch = () => {
-
+const hamburgerOpen = () => {
   mobileNav.classList.toggle("header__mobile__nav--closed");
-
   hamburgerLineOne.classList.toggle("hamLineOneOpen");
-
   hamburgerLineTwo.classList.toggle("hamLineTwoOpen");
-
   hamburgerLineThree.classList.toggle("hamLineThreeOpen");
 };
 
-const hamburger = document.querySelector(".mobile__hamburger").addEventListener("click", hamburgerSwitch);
+const hamburgerClose = () => {
+  mobileNav.classList.add("header__mobile__nav--closed");
+  hamburgerLineOne.classList.remove("hamLineOneOpen");
+  hamburgerLineTwo.classList.remove("hamLineTwoOpen");
+  hamburgerLineThree.classList.remove("hamLineThreeOpen"); 
+}
+
+let lastScrollPosition = 0;
+
+window.addEventListener("scroll", () => {
+
+  let currentScrollPosition = window.pageYOffset;
+
+  if (currentScrollPosition > 215 && currentScrollPosition > lastScrollPosition) {
+    mobileHeader.style.transform = "translateY(-600px)";
+    hamburgerClose();      
+  } else {
+    mobileHeader.style.transform = "translateY(0)";
+    hamburgerClose();   
+  }
+  lastScrollPosition = currentScrollPosition;
+});
+
+const hamburger = document.querySelector(".mobile__hamburger").addEventListener("click", hamburgerOpen);
 
 const hamburgerLineOne = document.querySelector(".hamburger__line--one");
 
@@ -23,30 +40,7 @@ const hamburgerLineThree = document.querySelector(".hamburger__line--three");
 
 const mobileNav = document.querySelector(".header__mobile__nav");
 
-
-///////////////// HEADER ROLL_UP & DOWN /////////////
-
-
-let lastScrollPosition = 0;
-
-window.addEventListener("scroll", () => {
-
-  let currentScrollPosition = window.pageYOffset;
-
-  if (currentScrollPosition > 215 && currentScrollPosition > lastScrollPosition) {
-    mobileHeader.style.transform = "translateY(-200px)";
-    // console.log("currentscroll", currentScrollPosition);
-    // console.log("lastscroll", lastScrollPosition);
-  } else {
-    mobileHeader.style.transform = "translateY(0)";
-  }
-
-  lastScrollPosition = currentScrollPosition;
-});
-
 const mobileHeader = document.querySelector(".header--mobile");
-
-
 
 //////////////////////////////////////// HOMESCREEN WRITINGS
 
@@ -64,12 +58,10 @@ let isDeleting = false;
 
 let isEnd = false;
 
-
 const loop = () => {
   
     isEnd = false
     textDisplay.innerHTML = currentPhrase.join('');
-
   
     if (i < phrases.length) {
   
@@ -100,9 +92,9 @@ const loop = () => {
       }
     }
 
-    const spedUp = Math.random() * (50 -20) + 20
-    const normalSpeed = Math.random() * (150 -50) + 50
-    const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed
+    const spedUp = Math.random() * (50 -20) + 20;
+    const normalSpeed = Math.random() * (150 -50) + 50;
+    const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed;
     setTimeout(loop, time)
   }
 
@@ -110,10 +102,15 @@ loop();
 
 ///////////////////////////////////////// TOGGLING MAIN ELEMENTS
 
-
 const main = document.querySelectorAll(".main");
 
 const switcher = document.querySelectorAll(".header__link");
+
+const tile = document.querySelectorAll(".header__tile");
+
+const homeScreen = document.getElementById("homeScreen");
+
+const contact = document.querySelector(".main--contact");
 
 switcher.forEach(function(element) {
 
@@ -124,35 +121,72 @@ switcher.forEach(function(element) {
     main.forEach(function(div) {
 
       if (div.id === target) {
-        div.style.display = "flex";
+        Opening(div);
+        tileSwitchOn(target);
       } else {
-        div.style.display = "none";
+        Hiding(div);
       }
     });
   });
 });
 
+const Opening = (div) => {
+  setTimeout(function() {
+    div.classList.remove("hideAnimation", "displayOff")
+    div.classList.add("open")
+  }, 750)
+}
 
-const contact = document.querySelector(".main--contact");
+const Hiding = (div) => {
+  div.classList.replace("open", "hideAnimation");
+  setTimeout(function() {
+    div.classList.add("displayOff");
+  }, 750)
+}
+
+
+const hideFast = (div) => {
+  div.classList.remove("open", "openNoAnimation", "hideAnimation");
+  div.classList.add("displayOff");
+}
+
+const tileSwitchOn = (target) => {
+  tile.forEach(function(li) {
+    if (li.getAttribute("data-target") === target) {
+      li.classList.add("header__tile--focused", "header__tile--hovered"); 
+    } else {
+      li.classList.remove("header__tile--focused", "header__tile--hovered");
+    }
+  });
+}
+
+const tileSwitchOff = (li) => {
+  tile.forEach(function(li) {
+    li.classList.remove("header__tile--focused", "header__tile--hovered");
+  });
+  homeScreen.classList.add("header__tile--focused", "header__tile--hovered");
+};
 
 if (matchMedia) {
   const mq = window.matchMedia("(max-width: 980px)");
-  mq.addEventListener("change", WidthChange);
-  WidthChange(mq);
+  mq.addEventListener("change", widthChange);
+  widthChange(mq); 
 }
 
-function WidthChange(mq) {
+function widthChange(mq) {
 
   if (mq.matches) {
     main.forEach(function(div) {
-      div.style.display = "flex";
-      contact.style.display = "none";
+      div.classList.remove("hideAnimation", "displayOff");
+      div.classList.add("openNoAnimation");
+      contact.classList.replace("openNoAnimation", "displayOff");
     });
   } else {
       main.forEach(function(div) {
-        if (div.id !== "main1") { 
-          div.style.display = "none";
-        }
-      });
+        if (div.id !== "main1") {
+          hideFast(div);
+          tileSwitchOff();
+       }
+    })
   }
 };

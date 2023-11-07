@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="cs">
+<html lang="en">
 
     <head>
         <meta charset="UTF-8"/>
@@ -12,8 +12,7 @@
 
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-        </style>
-                        
+        </style>                   
     </head>
 
     <body>
@@ -21,47 +20,46 @@
         <div class="page__wrapper">
 
             <header class="header">
-                <div class="header__inner">
-                    <div class="header__me">
-                        <img class="header__pfp" src="photo.png">
 
+                <div class="header__inner">
+                    <div class="header__inner__container">
+                        <img class="header__pfp" src="/images/icons/photo.png">
                         <h2 class="header__name">Rudolf<br>Kovařík</h2>
                     </div>
 
                     <nav class="header__links">
                         <ul class="header__links__ul">
-                            <li class="header__tile">
+                            <li class="header__tile header__tile--focused header__tile--hovered" id="homeScreen" data-target="main1">
                                 <a class="header__link header__link--intro" data-target="main1">
                                     <img src="images/icons/home.svg">
                                     <span>Home</span>
                                 </a>
                             </li>
-                            <li class="header__tile">
+                            <li class="header__tile" data-target="main2">
                                 <a class="header__link header__link--about" data-target="main2">
                                     <img src="images/icons/user.svg">
                                     <span>About me</span>
                                 </a>
                             </li>
-                            <li class="header__tile">
+                            <li class="header__tile" data-target="main3">
                                 <a class="header__link header__link--resume" data-target="main3">
                                     <img src="images/icons/id.svg">
-                                    <span>Resume</span>
+                                    <span>Career</span>
                                 </a>
                             </li>
-                            <li class="header__tile">
+                            <li class="header__tile" data-target="main4">
                                 <a class="header__link header__link--projects" data-target="main4">
                                     <img src="images/icons/portfolio.svg">
                                     <span>Projects</span>
                                 </a>
                             </li>
 
-                            <li class="header__tile">
+                            <li class="header__tile" data-target="main5">
                                 <a class="header__link header__link--contact" data-target="main5">
                                     <img src="images/icons/user.svg">
                                     <span>Contact</span>
                                 </a>
                             </li>
-
                         </ul>
                     </nav>
                 </div>
@@ -70,22 +68,17 @@
             <header class="header--mobile">
 
                 <div class="header--mobile__topbar">
-
-                    <div class="header--mobile__left">
+                    <div class="header__topbar__left">
                         <h2 class="header__name--mobile">Rudolf Kovařík</h2>
                     </div>
 
-
-                    <div class="header--mobile__right">
-
+                    <div class="header__topbar__right">
                         <div class="mobile__hamburger">
                             <span class="hamburger__line hamburger__line--one"></span>
                             <span class="hamburger__line hamburger__line--two"></span>
                             <span class="hamburger__line hamburger__line--three"></span>
                         </div>
-
                     </div>
-
                 </div>
 
 
@@ -93,24 +86,19 @@
                     <nav class="header__mobile__nav header__mobile__nav--closed">
                         <ul class="header__mobile__ul">
                             <li>
-                                <a href="#main1" class="header__link--mobile">Home
-                                </a>
+                                <a href="#main1" class="header__link--mobile">Home</a>
                             </li>
                             <li>
-                                <a href="#main2" class="header__link--mobile">About
-                                </a>
+                                <a href="#main2" class="header__link--mobile">About</a>
                             </li>
                             <li>
-                                <a href="#main3" class="header__link--mobile">Resume
-                                </a>
+                                <a href="#main3" class="header__link--mobile">Career</a>
                             </li>
                             <li>
-                                <a href="#main4" class="header__link--mobile">Projects
-                                </a>
+                                <a href="#main4" class="header__link--mobile">Projects</a>
                             </li>
                             <li>
-                                <a href="mailto:r.r.kovarik@gmail.com?subject=Job Offer&body=Hi Ruda, i've seen your story and skillset i would like to make you an interesting offer." class="header__link--mobile"><span class="contact__orange">Contact me</span>
-                                </a>
+                                <a href="mailto:r.r.kovarik@gmail.com?subject=Job Offer&body=Hi Ruda, i've seen your story and skillset, i think you are a right candidate for this company." class="header__link--mobile"><span class="contact__orange">Contact me</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -122,16 +110,15 @@
 
             <div class="central__wrapper">
 
-                <aside class="main main--home main--transparent" id="main1">  
+                <aside class="main main--home main--transparent open" id="main1">  
                     <div class="home__headline__wrapper">
                         <h1 class="headline--big">Hello, i'm Ruda</h1>
-
                         <h3 class="home__subheadline"></h3>
                     </div>
                 </aside>
 
 
-                <aside class="main main--about" id="main2">
+                <aside class="main main--about displayOff" id="main2">
 
                     <div class="main__wrapper">
 
@@ -147,76 +134,75 @@
 
                             <div class="about__intro">
 
-                                <div class="about__photo__wrapper">
-                                </div>
-
+                                <div class="about__photo__wrapper"></div>
 
                                 <div class="about__right">
 
                                     <div class="about__description">
-                                    <div>
-                                        <h4 class="section__headline">I am a Copywriter</h4>
-                                    </div>
+                                        <div>
+                                            <h4 class="section__headline">I want to code</h4>
+                                        </div>
 
-                                    <div>
-                                        <p>I started my marketing career about 7 years ago. First i worked at two smaller advertising companies (Darkside and TRIAD Advertising). Then i spent almost four years at Wunderman, before settling at Leo Burnett where i work to this day.<br><br> My natural curiosity about languagues brought me to coding and what started as a lockdown hobby, soon became more and more serious.</p>
-                                    </div>
+                                        <div>
+                                            <p>My background is in marketing, where i started my career 8 years ago. First i worked at Darkside and Triad Advertising. Then i spent almost four years at Wunderman, before settling at Leo Burnett advertising agency where i work to this day.<br><br> My natural curiosity about languagues brought me to coding and what started as a lockdown hobby, soon became more and more serious.</p>
+                                        </div>
                                     </div>
 
                                     <div class="about__basics">
-                                    <nav class="about__basics__nav">
-                                        <ul>
-                                            <li>
-                                                <h5>Nationality</h5>
-                                                <p>Czech</p>
-                                            </li>
-                                            <li>
-                                                <h5>Languague</h5>
-                                                <p>English (C1)</p>
-                                            </li>
+                                        <nav class="about__basics__nav">
+                                            <ul>
+                                                <li>
+                                                    <h5>Nationality</h5>
+                                                    <p>Czech</p>
+                                                </li>
+                                                <li>
+                                                    <h5>Languague</h5>
+                                                    <p>English (C1)</p>
+                                                </li>
 
-                                            <li>
-                                                <h5>Residence</h5>
-                                                <p>Praha 6</p>
-                                            </li>
-                                            <li>
-                                                <h5>E-mail</h5>
-                                                <a href="mailto:r.r.kovarik@gmail.com?subject=Job Offer&body=Hi Ruda, i've seen your story and skillset i would like to make you an interesting offer."><p><span class="nav__span__mail">r.r.kovarik@gmail.com</span></p></a>
-                                            </li>
-                                            <li>
-                                                <h5>Phone number</h5>
-                                                <p>733 502 007</p>
-                                            </li>
-                                            <li>
-                                                <h5>LinkedIn</h5>
-                                                <p>@rudolfkovarik</p>
-                                            </li>
-                                        </ul>
-                                    </nav>
+                                                <li>
+                                                    <h5>Residence</h5>
+                                                    <p>Praha 6</p>
+                                                </li>
+                                                <li>
+                                                    <h5>E-mail</h5>
+                                                    <a href="mailto:r.r.kovarik@gmail.com?subject=Job Offer&body=Hi Ruda, i've seen your story and skillset i think you are a right candidate for this company."><p><span class="nav__span__mail">r.r.kovarik@gmail.com</span></p></a>
+                                                </li>
+                                                <li>
+                                                    <h5>Phone number</h5>
+                                                    <p>733 502 007</p>
+                                                </li>
+                                                <li>
+                                                    <h5>LinkedIn</h5>
+                                                    <p>@rudolfkovarik</p>
+                                                </li>
+                                            </ul>
+                                        </nav>
 
-                                    <nav>
-                                        <ul class="about__icons__container">
-                                            <li><a><img class="about__icon" src="images/icons/github.svg"></a></li>
-                                            <li><a><img class="about__icon" src="images/icons/google.svg"></a></li>
-                                            <li><a><img class="about__icon" src="images/icons/spotify.svg"></a></li>
-                                        </ul>
-                                    </nav>
+                                        <nav>
+                                            <ul class="about__icons__container">
+                                                <li><a href="https://github.com/La-Ruda"><img class="about__icon" src="images/icons/github.svg"></a></li>
+                                                <li><a href="https://www.linkedin.com/in/rudolf-kova%C5%99%C3%ADk-158605109/"><img class="about__icon"  src="images/icons/linkedin (1).svg"></a></li>
+                                                <li><a href="https://open.spotify.com/user/yungpruda"><img class="about__icon" src="images/icons/spotify.svg"></a></li>
+                                            </ul>
+                                        </nav>
                                     </div>
 
                                 </div>
-
                             </div>
 
                 
 
                             <div class="about__lifestory">
-
                                 <div class="section__heading">
-                                    <h5 class="section__headline">How it started?</h5>
+                                    <h5 class="section__headline">Why do i code</h5>
                                 </div>
 
                                 <div class="about__story">
-                                    <p>I started my marketing career about 7 years ago. First i worked at two smaller advertising companies (Darkside and TRIAD Advertising). Then i spent almost four years at Wunderman, before settling at Leo Burnett where i work to this day.My natural curiosity about languagues brought me to coding and what started as a lockdown hobby, soon became more and more serious.</p>
+                                    <p>I was never deeply interested in technology. Words and languagues on the other hand fascinated me from my earliest childhood. Why? Common saying is that languague is the closest thing to spells and magic we modern humans have left. Just say or write down any word and that's it, you just put vivid images and ideas right into someone's brain without any possibility for him to stop it. 
+                                        Magical, isn't it? So as it happens my interest in coding began on one rainy dain in Spain when i accidentaly misclicked on Wikipedia and went from spanish characters to programming characters. Now that's odd, i told myself. I know they are named programming languagues, but i always thought about them
+                                        as consisting of numbers and cold math. Is coding just another way of communication? Just with computers instead of people? The idea felt completely amusing, i had to know more. First i read articles about coding, then youtube tutorials, then i paid for an online course and then another and another. With every single piece of knowledge i acquired i felt the need to go deeper and deeper. The magic simply never went away, and i haven't looked back since.
+                                    </p>
                                 </div>
                             </div>
 
@@ -228,7 +214,6 @@
                                 </div>
 
                                 <div class="about__skills__showcase">
-
                                     <div class="about__skillcard">
                                         <img class="skill__icon" src="images/icons/web_design_icon.png">
                                         <h4>Coding</h4>
@@ -256,13 +241,12 @@
                                 </div>
 
                                 <div class="about__techstack">
-
                                     <div>
-                                        <img class="techstack__img" src="images/icons/html-5_732212.png">
+                                        <img class="techstack__img" src="images/icons/html-5_732212.png" alt="HTML">
                                     </div>
 
                                     <div>
-                                        <img class="techstack__img" src="images/icons/css-3_732190.png">
+                                        <img class="techstack__img" src="images/icons/css-3_732190.png" alt="CSS">
                                     </div>
 
                                     <div>
@@ -270,7 +254,7 @@
                                     </div>
 
                                     <div>
-                                        <img class="techstack__img" src="images/icons/github_2111432.png">
+                                        <img class="techstack__img" src="images/icons/github_2111432.png" alt="Github">
                                     </div>
 
                                 </div>
@@ -280,13 +264,13 @@
                     </div>
                 </aside>
 
-                <aside class="main main--resume" id="main3">
+                <aside class="main main--resume displayOff" id="main3">
+
                     <div class="main__inner__wrapper">
 
                         <div class="main__header">
-
                             <div class="main__header__content">
-                                <h2 class="main__headline">Resume</h2>
+                                <h2 class="main__headline">My Career</h2>
                                 <h4 class="main__subline">8 Years of Experience</h4>
                             </div>
                         </div>
@@ -302,21 +286,19 @@
 
                                     <div class="resume__job">
                                         <h6 class="job__year">2005–2009</h6>
-
                                         <div class="job__texts">
-                                            <h5 class="job__name">Knihovnictví</h5>
+                                            <h5 class="job__name">Librarianship</h5>
                                             <p class="job__subheadline">SOŠIKS</p>
-                                            <p class="job__description">Maturitní studium knihovnictví a práce s informacemi</p>
+                                            <p class="job__description">High school certificate from Librarianship and information work.</p>
                                         </div>
                                     </div>
 
                                     <div class="resume__job">
                                         <h6 class="job__year">2012–2015</h6>
-
                                         <div class="job__texts">
-                                            <h5 class="job__name">Žurnalistika</h5>
-                                            <p class="job__subheadline">Univerzita Karlova</p>
-                                            <p class="job__description">Bakalářské studium žurnalistiky</p>
+                                            <h5 class="job__name">Journalism</h5>
+                                            <p class="job__subheadline">Charles University</p>
+                                            <p class="job__description">Bachelor studies of Journalism.</p>
                                         </div>
                                     </div>
 
@@ -337,17 +319,15 @@
 
                                     <div class="resume__job">
                                         <h6 class="job__year">2015–2016</h6>
-
                                         <div class="job__texts">
                                             <h5 class="job__name">Dark Side</h5>
                                             <p class="job__subheadline">Copywriter & Idea Maker</p>
-                                            <p class="job__description">Brands: KFC, Billa, Lentilky, Future Life, Česko v datech, ČSOB</p>
+                                            <p class="job__description">Brands: KFC, ČSOB, Billa, Lentilky, Future Life, Česko v datech</p>
                                         </div>
                                     </div>
 
                                     <div class="resume__job">
                                         <h6 class="job__year">2016–2017</h6>
-
                                         <div class="job__texts">
                                             <h5 class="job__name">TRIAD Advertising</h5>
                                             <p class="job__subheadline">Copywriter & Idea Maker</p>
@@ -357,11 +337,10 @@
 
                                     <div class="resume__job">
                                         <h6 class="job__year">2017–2020</h6>
-
                                         <div class="job__texts">
                                             <h5 class="job__name">Wunderman Thompson</h5>
                                             <p class="job__subheadline">Copywriter & Idea Maker</p>
-                                            <p class="job__description">Brands: CK Fischer, Microsoft, Shell, Komerční banka, Hello bank!, Equa Bank, České dráhy, Ford, Mazda</p>
+                                            <p class="job__description">Brands: Microsoft, Shell, Komerční banka, Hello bank!, Equa Bank, České dráhy, CK Fischer, Ford, Mazda</p>
                                         </div>
                                     </div>
 
@@ -408,7 +387,6 @@
                                             </div>
                                         </div>
 
-
                                         <div>
                                             <h5 class="job__skill__headline">Git</h5>
                                             <div class="job__bar">
@@ -416,7 +394,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="section__heading section__heading--jobs">
@@ -462,13 +439,13 @@
                 </aside>
 
 
-                <aside class="main main--projects" id="main4">
+                <aside class="main main--projects displayOff" id="main4">
                     <div class="main__inner__wrapper">
 
                         <div class="main__header">
 
                             <div class="main__header__content">
-                                <h2 class="main__headline">Portfolio</h2>
+                                <h2 class="main__headline">Projects</h2>
                                 <h4 class="main__subline">See what i can do</h4>
                             </div>
                         </div>
@@ -480,7 +457,7 @@
                         <div class="projects__inner__wrapper">
 
                             <div class="projects__box">
-                                <img href="https://github.com/La-Ruda/instrument" class="project__screen" src="images/icons/instrument.png">
+                                <img href="https://github.com/La-Ruda/instrument" class="project__screen" src="images/icons/instrument.jpg">
                                 <div class="project__screen__middle">
                                     <a href="https://github.com/La-Ruda/instrument"><div class="project__middle__button">Instrument</div></a>
                                 </div>
@@ -488,7 +465,7 @@
 
 
                             <div class="projects__box">
-                                <img href="https://github.com/La-Ruda/ableton-project" class="project__screen" src="images/icons/ableton.png">
+                                <img href="https://github.com/La-Ruda/ableton-project" class="project__screen" src="images/icons/ableton.jpg">
                                 <div class="project__screen__middle">
                                      <a href="https://github.com/La-Ruda/ableton-project"><div class="project__middle__button">Ableton</div></a>
                                 </div>
@@ -496,7 +473,7 @@
 
 
                             <div class="projects__box">
-                                <img href="https://github.com/La-Ruda/lobe" class="project__screen" src="images/icons/lobe.png">
+                                <img href="https://github.com/La-Ruda/lobe" class="project__screen" src="images/icons/lobe.jpg">
                                 <div class="project__screen__middle">
                                     <a href="https://github.com/La-Ruda/lobe"><div class="project__middle__button">Lobe</div></a>
                                 </div>
@@ -504,7 +481,7 @@
 
 
                             <div class="projects__box">
-                                <img href="https://github.com/La-Ruda/backstage" class="project__screen" src="images/icons/backstage.png">
+                                <img href="https://github.com/La-Ruda/backstage" class="project__screen" src="images/icons/backstage.jpg">
                                 <div class="project__screen__middle">
                                     <a href="https://github.com/La-Ruda/backstage"><div class="project__middle__button">Backstage</div></a>
                                 </div>
@@ -512,16 +489,23 @@
 
 
                             <div class="projects__box">
-                                <img href="https://github.com/La-Ruda/rb-project" class="project__screen" src="images/icons/rb.png">
+                                <img href="https://github.com/La-Ruda/rb-project" class="project__screen" src="images/icons/rb.jpg">
                                 <div class="project__screen__middle">
                                      <a href="https://github.com/La-Ruda/rb-project"><div class="project__middle__button">RB</div></a>
                                 </div>
                             </div>
 
                             <div class="projects__box">
-                                <img href="https://github.com/La-Ruda/hattori-project" class="project__screen" src="images/icons/hattori (kopie).png">
+                                <img href="https://github.com/La-Ruda/hattori-project" class="project__screen" src="images/icons/hattori (kopie).jpg">
                                 <div class="project__screen__middle">
                                     <a href="https://github.com/La-Ruda/hattori-project"><div class="project__middle__button">Hattori</div></a>
+                                </div>
+                            </div>
+
+                            <div class="projects__box">
+                                <img href="https://github.com/La-Ruda/cv__portfolio" class="project__screen" src="images/icons/portfolio.png">
+                                <div class="project__screen__middle">
+                                    <a href="https://github.com/La-Ruda/cv__portfolio"><div class="project__middle__button">Portfolio</div></a>
                                 </div>
                             </div>
 
@@ -530,19 +514,18 @@
                     </div>
                 </aside>
 
-                <aside class="main main--contact main--transparent" id="main5">
+                <aside class="main main--contact main--transparent displayOff" id="main5">
 
                     <div class="home__headline__wrapper">
                         <h2 class="headline--big headline--big--contact">Would you like me onboard?</h1>
                     </div>
 
                     <div class="contact__button__wrapper">
-                        <p><a href="mailto:r.r.kovarik@gmail.com?subject=Job Offer&body=Hi Ruda, i've seen your story and skillset i would like to make you an interesting offer."><button class="button button--contact">Let's do it</button></a></p>
+                        <p><a href="mailto:r.r.kovarik@gmail.com?subject=Job Offer&body=Hi Ruda, i've seen your story and i would like to make you an interesting offer."><button class="button button--contact">Let's do it</button></a></p>
                     </div>
                 </aside>
 
             </div>
-
         </div>
     </body>
 </html>
