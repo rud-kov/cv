@@ -179,10 +179,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  overflow: hidden;
 }
 
 .main {
   max-width: 1300px;
+  max-height: 90%;
+  overflow: scroll;
   display: flex;
   background-color: #FFF;
   justify-content: center;
@@ -295,7 +299,7 @@ body {
   animation-timing-function: ease-out;
 }
 
-.displayOff {
+.display--off {
   display: none;
 }
 
@@ -319,6 +323,7 @@ body {
 .main--transparent {
   background-color: transparent;
   align-items: center;
+  overflow: visible;
 }
 
 .home__headline__wrapper {
@@ -801,6 +806,9 @@ body {
   }
   .page__wrapper {
     display: block;
+  }
+  .central__wrapper {
+    overflow: scroll;
   }
   .header--mobile {
     display: block;
