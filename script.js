@@ -132,7 +132,7 @@ switcher.forEach(function(element) {
 
 const Opening = (div) => {
   setTimeout(function() {
-    div.classList.remove("hideAnimation", "displayOff")
+    div.classList.remove("hideAnimation", "display--off")
     div.classList.add("open")
   }, 750)
 }
@@ -140,14 +140,14 @@ const Opening = (div) => {
 const Hiding = (div) => {
   div.classList.replace("open", "hideAnimation");
   setTimeout(function() {
-    div.classList.add("displayOff");
+    div.classList.add("display--off");
   }, 750)
 }
 
 
 const hideFast = (div) => {
   div.classList.remove("open", "openNoAnimation", "hideAnimation");
-  div.classList.add("displayOff");
+  div.classList.add("display--off");
 }
 
 const tileSwitchOn = (target) => {
@@ -177,9 +177,9 @@ function widthChange(mq) {
 
   if (mq.matches) {
     main.forEach(function(div) {
-      div.classList.remove("hideAnimation", "displayOff");
+      div.classList.remove("hideAnimation", "display--off");
       div.classList.add("openNoAnimation");
-      contact.classList.replace("openNoAnimation", "displayOff");
+      contact.classList.replace("openNoAnimation", "display--off");
     });
   } else {
       main.forEach(function(div) {
