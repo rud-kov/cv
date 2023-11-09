@@ -815,7 +815,7 @@ body {
   }
   .main {
     overflow: initial;
-    margin: 20px;
+    margin: 10px;
     max-height: unset;
   }
   .main__inner__wrapper {
