@@ -46,7 +46,7 @@ const mobileHeader = document.querySelector(".header--mobile");
 
 const textDisplay = document.querySelector(".home__subheadline");
 
-let phrases = ['I am a Coder', 'and a Copywriter', 'also an Idea Maker'];
+let phrases = ['I am a Coder','and a Copywriter','also an Idea Maker'];
 
 let i = 0;
 

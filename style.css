@@ -803,6 +803,7 @@ body {
   .home__subheadline::after {
     font-size: calc(1.4rem + 0.8 * (100vw - 320px) / 320);
     height: calc(1.4rem + 0.8 * (100vw - 320px) / 320);
+    white-space: nowrap;
   }
   .page__wrapper {
     display: block;
