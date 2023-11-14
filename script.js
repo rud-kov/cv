@@ -1,3 +1,12 @@
+///////////////////// HASH CHANGE
+
+window.addEventListener("hashchange", function() {
+  console.log(hash);
+});
+
+var hash = new URL(document.URL).hash;
+
+
 /////////////////////////////////// HAMBURGER MENU 
 
 const hamburgerOpen = () => {
