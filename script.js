@@ -183,7 +183,7 @@ function widthChange(mq) {
     });
   } else {
       main.forEach(function(div) {
-        if (div.id !== "main1") {
+        if (div.id !== "home") {
           hideFast(div);
           tileSwitchOff();
        }
