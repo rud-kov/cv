@@ -1,9 +1,10 @@
 
-import { loop } from "./loop/loop.js";
+import { loop } from "./Loop/loop.js";
+
 
 loop();
 
-import { hamburgerOpen, hamburgerClose } from './hamburger/hamburger.js';
+import { hamburgerOpen, hamburgerClose } from './Hamburger/hamburger.js';
 
 let lastScrollPosition = 0;
 
@@ -25,4 +26,4 @@ const hamburger = document.querySelector(".mobile__hamburger").addEventListener(
 
 const mobileHeader = document.querySelector(".header--mobile");
 
-import { tileSwitchOff, tileSwitchOn, hideFast, Hiding, Opening, widthChange } from "./toggleMain/toggling.js";
+import { tileSwitchOff, tileSwitchOn, hideFast, Hiding, Opening, widthChange } from "./ToggleMain/toggling.js";
