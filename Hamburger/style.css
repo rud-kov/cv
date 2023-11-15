@@ -105,4 +105,10 @@
 .header__mobile__ul li {
   padding: 15px;
   font-size: 14px;
+}
+
+@media only screen and (max-width: 980px) {
+  .header--mobile {
+    display: block;
+  }
 }/*# sourceMappingURL=style.css.map */

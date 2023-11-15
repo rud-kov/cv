@@ -702,9 +702,6 @@ body {
   .central__wrapper {
     overflow: scroll;
   }
-  .header--mobile {
-    display: block;
-  }
   .main {
     overflow: initial;
     margin: 10px;

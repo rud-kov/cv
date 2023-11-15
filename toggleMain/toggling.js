@@ -1,30 +1,10 @@
 const main = document.querySelectorAll(".main");
 
-const switcher = document.querySelectorAll(".header__link");
-
 const tile = document.querySelectorAll(".header__tile");
 
 const homeScreen = document.getElementById("homeScreen");
 
 const contact = document.querySelector(".main--contact");
-
-switcher.forEach(function(element) {
-
-  element.addEventListener("click", function() {
-
-    const target = element.getAttribute("data-target");
-
-    main.forEach(function(div) {
-
-      if (div.id === target) {
-        Opening(div);
-        tileSwitchOn(target);
-      } else {
-        Hiding(div);
-      }
-    });
-  });
-});
 
 export const Opening = (div) => {
   setTimeout(function() {

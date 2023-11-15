@@ -3,38 +3,9 @@ import { loop } from "./Loop/loop.js";
 
 loop();
 
-////////////////////////////
-
-const hamburgerOpen = () => {
-  mobileNav.classList.toggle("header__mobile__nav--closed");
-  hamburgerLineOne.classList.toggle("hamLineOneOpen");
-  hamburgerLineTwo.classList.toggle("hamLineTwoOpen");
-  hamburgerLineThree.classList.toggle("hamLineThreeOpen");
-};
-
-const hamburgerClose = () => {
-  mobileNav.classList.add("header__mobile__nav--closed");
-  hamburgerLineOne.classList.remove("hamLineOneOpen");
-  hamburgerLineTwo.classList.remove("hamLineTwoOpen");
-  hamburgerLineThree.classList.remove("hamLineThreeOpen"); 
-};
-
-const hamburgerLineOne = document.querySelector(".hamburger__line--one");
-
-const hamburgerLineTwo = document.querySelector(".hamburger__line--two");
-
-const hamburgerLineThree = document.querySelector(".hamburger__line--three");
-
-const mobileNav = document.querySelector(".header__mobile__nav");
-
-const hamburger = document.querySelector(".mobile__hamburger").addEventListener("click", hamburgerOpen);
-
-
-//////////////////////////
-
 
 let lastScrollPosition = 0;
-
+  
 window.addEventListener("scroll", () => {
 
   let currentScrollPosition = window.pageYOffset;
@@ -51,3 +22,29 @@ window.addEventListener("scroll", () => {
 
 const mobileHeader = document.querySelector(".header--mobile");
 
+import { hamburgerClose, hamburgerOpen } from "./Hamburger/script.js";
+
+
+const switcher = document.querySelectorAll(".header__link");
+
+const main = document.querySelectorAll(".main");
+
+switcher.forEach(function(element) {
+
+  element.addEventListener("click", function() {
+
+    const target = element.getAttribute("data-target");
+
+    main.forEach(function(div) {
+
+      if (div.id === target) {
+        Opening(div);
+        tileSwitchOn(target);
+      } else {
+        Hiding(div);
+      }
+    });
+  });
+});
+
+import { tileSwitchOff, tileSwitchOn, hideFast, Hiding, Opening, widthChange } from "./ToggleMain/toggling.js";
