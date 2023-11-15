@@ -1,8 +1,6 @@
-
 import { loop } from "./Loop/loop.js";
 
 loop();
-
 
 let lastScrollPosition = 0;
   
