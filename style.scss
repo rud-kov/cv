@@ -193,7 +193,7 @@ body {
 .main {
   max-width: 1300px;
   max-height: 90%;
-  overflow: scroll; // toto je nové
+  overflow: scroll;
   display: flex;
   background-color: #FFF;
   justify-content: center;
@@ -692,6 +692,108 @@ body {
   font-size: 45px;
 }
 
+////////////// TABLET & MOBILE  
+
+.header--mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 70px;
+  border-bottom: 1px solid whitesmoke;
+  background-color: #FFFF;
+  z-index: 500;
+}
+
+.header--mobile__topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  margin: 0 25px;
+  position: relative;
+  background-color: #FFFF;
+  z-index: 420;
+}
+
+.header__mobile__nav {
+  background-color: #FFFF;
+  margin-top: 1px;
+  text-align: center;
+  border-bottom: 1px solid whitesmoke;
+  animation: opening 350ms;
+}
+
+@keyframes opening {
+  from {display: none};
+  to {transform: translateY(0px); opacity: 1};
+}
+
+.header__mobile__nav--closed {
+  animation: closing 350ms;
+  display: none;
+} 
+
+@keyframes closing {
+  from {display: block};
+  to {transform: translateY(-200px); opacity: 0;};
+};
+
+.contact__orange {
+  color: var(--primaryColor);
+}
+
+.header__name--mobile {
+  color: #555555;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "oxygen", sans-serif;
+}
+
+.mobile__hamburger {
+  width: 30px;
+  padding: 20px;
+}
+
+.mobile__hamburger:hover {
+  cursor: pointer;
+}
+
+.hamburger__line {
+  position: absolute;
+  width: 32px;
+  height: 3px;
+  background-color: var(--primaryColor);
+  transition: all 400ms cubic-bezier(.84,.06,.52,1.8);
+}
+
+.hamburger__line--one {
+  transform: translateY(-8px);
+  animation-delay: 100ms;
+}
+
+.hamburger__line--three {
+  transform: translateY(8px);
+  animation-delay: 250ms;
+}
+
+.hamLineOneOpen {
+  transform: rotate(40deg);
+}
+
+.hamLineTwoOpen {
+  opacity: 0;
+}
+
+.hamLineThreeOpen {
+  transform: rotate(-40deg);
+}
+
+.header__mobile__ul li {
+  padding: 15px;
+  font-size: 14px;
+}
 
 /////////////////// QUERRIES 
 
