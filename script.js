@@ -3,7 +3,35 @@ import { loop } from "./Loop/loop.js";
 
 loop();
 
-import { hamburgerOpen, hamburgerClose } from './Hamburger/hamburger.js';
+////////////////////////////
+
+const hamburgerOpen = () => {
+  mobileNav.classList.toggle("header__mobile__nav--closed");
+  hamburgerLineOne.classList.toggle("hamLineOneOpen");
+  hamburgerLineTwo.classList.toggle("hamLineTwoOpen");
+  hamburgerLineThree.classList.toggle("hamLineThreeOpen");
+};
+
+const hamburgerClose = () => {
+  mobileNav.classList.add("header__mobile__nav--closed");
+  hamburgerLineOne.classList.remove("hamLineOneOpen");
+  hamburgerLineTwo.classList.remove("hamLineTwoOpen");
+  hamburgerLineThree.classList.remove("hamLineThreeOpen"); 
+};
+
+const hamburgerLineOne = document.querySelector(".hamburger__line--one");
+
+const hamburgerLineTwo = document.querySelector(".hamburger__line--two");
+
+const hamburgerLineThree = document.querySelector(".hamburger__line--three");
+
+const mobileNav = document.querySelector(".header__mobile__nav");
+
+const hamburger = document.querySelector(".mobile__hamburger").addEventListener("click", hamburgerOpen);
+
+
+//////////////////////////
+
 
 let lastScrollPosition = 0;
 
@@ -23,6 +51,3 @@ window.addEventListener("scroll", () => {
 
 const mobileHeader = document.querySelector(".header--mobile");
 
-const hamburger = document.querySelector(".mobile__hamburger").addEventListener("click", hamburgerOpen);
-
-import { tileSwitchOff, tileSwitchOn, hideFast, Hiding, Opening, widthChange } from "./ToggleMain/toggling.js";
