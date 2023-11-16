@@ -41,7 +41,6 @@ a:hover {
   border-spacing: border-box;
 }
 
-/////////////////////////////////// GENERAL STYLING /////
 
 html, body {
   height: 100%;
@@ -68,115 +67,9 @@ body {
   --primaryColor: #ff724c;
 }
 
-
-/////////////////////////////////// HEADER AND MENU /////
-
-@mixin tile__focused {
-  background-color: var(--primaryColor);
-  content: "";
-  position: absolute;
-  width: 3px;
-  height: 71px;
-  right: 0;
-}
-
-
-.header {
-  display: flex;
-  grid-column: 1;
-  grid-row: 1;
-  position: fixed;
-  background-color: #FFF;
-  top: 0;
-  left: 0;
-  min-height: 100%;
-  width: 150px;
-}
-
-.header__inner {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto 50px;
-  flex: 2;
-}
-
-.header__inner__container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  gap: 20px;
-}
-
-.header__pfp {
-  width: 80px;
-}
-
-.header__name {
-  text-align: center;
-  color: var(--primaryColor);
-  line-height: 1.2;
-  font-family: Helvetica;
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-
-.header__links__ul {
-  display: flex;
-  flex-direction: column;
-  margin: 25px 0px 30px;
-}
-
-.header__links__ul:nth-child(1) {
-  border-top: 1px solid whitesmoke;
-}
-
-.header__tile {
-  text-align: center;
-  border-bottom: 1px solid whitesmoke;
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.7;
-}
-
-.header__tile:hover,
-.header__tile--hovered {
-  opacity: 1;
-}
-
-.header__tile:hover::after {
-  @include tile__focused();
-}
-
-.header__tile--focused::after {
-  @include tile__focused();
-}
-
-.header__link {
-  font-size: 0.8rem;
-  font-weight: 400;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px 20px;
-  color: #222
-}
-
-.header__link img {
-  margin: 0 auto;
-  width: 25px;
-  height: 25px;
-}
-
-
-///////////////////// QUERRIES 
-
 @media only screen and (max-width: 980px) {
-    body {
-      width: unset;
-      height: unset;
+  body {
+    width: unset;
+    height: unset;
   }
 }

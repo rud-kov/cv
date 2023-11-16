@@ -20,7 +20,7 @@ window.addEventListener("scroll", () => {
 
 const mobileHeader = document.querySelector(".header--mobile");
 
-import { hamburgerClose, hamburgerOpen } from "./Hamburger/script.js";
+import { hamburgerClose, hamburgerOpen } from "./Hamburger/hamburger.js";
 
 
 const switcher = document.querySelectorAll(".header__link");
