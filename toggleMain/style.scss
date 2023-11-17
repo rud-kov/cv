@@ -162,7 +162,7 @@
 }
 
 .main__headline {
-  color: #EEEE;
+  color: #EEEEEE;
   font-size: 60px;
 }
 
@@ -563,24 +563,21 @@
   flex-direction: column;
 }
 
+.headline--big--contact {
+  font-size: 45px;
+  color: var(--primaryColor);
+}
+
 .contact__button__wrapper {
   padding: 0.8em 1.8em;
   font-size: 1.275em;
-}
-
-.headline--big--contact {
-  font-size: 45px;
 }
 
 @media only screen and (max-width: 980px) {
   .resume__content {
       gap: initial;
   }
-  
-  .headline--big--contact {
-      font-size: calc(30px + 5 * ((100vw - 320px) / 320));
-  }
-  
+    
   .page__wrapper {
     display: block;
   }
