@@ -50,56 +50,42 @@ import { tileSwitchOff, tileSwitchOn, hideFast, Hiding, Opening, widthChange, Op
 
 window.addEventListener('hashchange', function() {
 
-  const href = window.location.href
+  const desktopWidth = window.matchMedia("(min-width: 980px)");
 
-  main.forEach(function(div) {
-    if (href.includes(div.id)) {
-      Opening(div);
-    } else {
-      Hiding(div);
-    }
-  })
+  if (desktopWidth.matches) {
+
+    const href = window.location.href
+
+    main.forEach(function(div) {
+      if (href.includes(div.id)) {
+        Opening(div);
+      } else {
+        Hiding(div);
+      }
+    })
+  }
 });
 
 
-// window.addEventListener('hashchange', function() {
-// 
-//   const desktopWidth = window.matchMedia("(min-width: 980px)");
-// 
-//   console.log(desktopWidth)
-// 
-//   const href = window.location.href
-// 
-//   main.forEach(function(div) {
-//     if ((href.includes(div.id)) && (desktopWidth === true)) {
-//       Opening(div);
-//     } else {
-//       Hiding(div);
-//     }
-//   })
-// });
+/// ZJISTIT PROC BY TOHLE NESLO DPC: 
 
 
-
-// if (matchMedia) {
-//   const desktopWidth = window.matchMedia("(min-width: 980px)");
-//   desktopWidth.addEventListener("hashchange", changeHash);
-//   changeHash(desktopWidth); 
-// }
-// 
-// function changeHash(desktopWidth) {
-// 
-//     if (desktopWidth.matches) {
-//       console.log("frčim typičo");
-//       const href = window.location.href 
-//       main.forEach(function(div) {
-//         if (href.includes(div.id)) {
-//           Opening(div);
-//         } else {
-//           Hiding(div);
-//         }
-//     });
-//   }
-// }
-
-
+//window.addEventListener("change", function() {
+//
+//  const mq = window.matchMedia("(max-width: 980px)")
+//
+//  if (mq.matches) {
+//
+//    main.forEach(function(div) {
+//      OpenFast(div);
+//      contact.classList.replace("openNoAnimation", "display--off");
+//    })
+//  } else {
+//    main.forEach(function(div) {
+//      if (div.id !== "home") {
+//        hideFast(div)
+//        tileSwitchOff();
+//      };
+//    });
+//  };
+//});
