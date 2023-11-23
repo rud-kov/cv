@@ -45,4 +45,61 @@ switcher.forEach(function(element) {
   });
 });
 
-import { tileSwitchOff, tileSwitchOn, hideFast, Hiding, Opening, widthChange } from "./ToggleMain/toggling.js";
+import { tileSwitchOff, tileSwitchOn, hideFast, Hiding, Opening, widthChange, OpenFast } from "./ToggleMain/toggling.js";
+
+
+window.addEventListener('hashchange', function() {
+
+  const href = window.location.href
+
+  main.forEach(function(div) {
+    if (href.includes(div.id)) {
+      Opening(div);
+    } else {
+      Hiding(div);
+    }
+  })
+});
+
+
+// window.addEventListener('hashchange', function() {
+// 
+//   const desktopWidth = window.matchMedia("(min-width: 980px)");
+// 
+//   console.log(desktopWidth)
+// 
+//   const href = window.location.href
+// 
+//   main.forEach(function(div) {
+//     if ((href.includes(div.id)) && (desktopWidth === true)) {
+//       Opening(div);
+//     } else {
+//       Hiding(div);
+//     }
+//   })
+// });
+
+
+
+// if (matchMedia) {
+//   const desktopWidth = window.matchMedia("(min-width: 980px)");
+//   desktopWidth.addEventListener("hashchange", changeHash);
+//   changeHash(desktopWidth); 
+// }
+// 
+// function changeHash(desktopWidth) {
+// 
+//     if (desktopWidth.matches) {
+//       console.log("frčim typičo");
+//       const href = window.location.href 
+//       main.forEach(function(div) {
+//         if (href.includes(div.id)) {
+//           Opening(div);
+//         } else {
+//           Hiding(div);
+//         }
+//     });
+//   }
+// }
+
+

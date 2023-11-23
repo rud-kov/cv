@@ -6,11 +6,17 @@ const homeScreen = document.getElementById("homeScreen");
 
 const contact = document.querySelector(".main--contact");
 
+
 export const Opening = (div) => {
   setTimeout(function() {
     div.classList.remove("hideAnimation", "display--off")
     div.classList.add("open")
   }, 750)
+}
+
+export const OpenFast = (div) => {
+  div.classList.remove("hideAnimation", "display--off");
+  div.classList.add("openNoAnimation");
 }
 
 export const Hiding = (div) => {
@@ -19,7 +25,6 @@ export const Hiding = (div) => {
     div.classList.add("display--off");
   }, 750)
 }
-
 
 export const hideFast = (div) => {
   div.classList.remove("open", "openNoAnimation", "hideAnimation");
@@ -53,8 +58,7 @@ export function widthChange(mq) {
 
   if (mq.matches) {
     main.forEach(function(div) {
-      div.classList.remove("hideAnimation", "display--off");
-      div.classList.add("openNoAnimation");
+      OpenFast(div);
       contact.classList.replace("openNoAnimation", "display--off");
     });
   } else {
@@ -65,4 +69,52 @@ export function widthChange(mq) {
        }
     })
   }
+  history.pushState(null, null, "#home");
 };
+
+
+//export function changeHash(desktopWidth) {
+//
+//    if (desktopWidth.matches) {
+//      console.log("frčim typičo");
+//      const href = window.location.href 
+//      main.forEach(function(div) {
+//        if (href.includes(div.id)) {
+//          Opening(div);
+//          console.log("dopiči už")
+//        } else {
+//          Hiding(div);
+//        }
+//    });
+//  }
+//}
+//
+//const desktopWidth = window.matchMedia("(min-width: 980px)");
+//changeHash(desktopWidth);
+//desktopWidth.addEventListener("hashchange", changeHash); 
+//
+//
+//console.log(desktopWidth);
+
+
+
+// if (matchMedia) {
+//   const desktopWidth = window.matchMedia("(min-width: 980px)");
+//   desktopWidth.addEventListener("hashchange", changeHash);
+//   changeHash(desktopWidth); 
+// }
+// 
+// export function changeHash(desktopWidth) {
+// 
+//     if (desktopWidth.matches) {
+//       console.log("frčim typičo");
+//       const href = window.location.href 
+//       main.forEach(function(div) {
+//         if (href.includes(div.id)) {
+//           Opening(div);
+//         } else {
+//           Hiding(div);
+//         }
+//     });
+//   }
+// }
