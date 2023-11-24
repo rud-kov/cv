@@ -1,6 +1,6 @@
 import { loop } from "./Loop/loop.js";
 
-import {tileSwitchOn, tileSwitchOff, Hiding, Opening} from "./ToggleMain/toggling.js";
+import {tileSwitchOn, Hiding, Opening} from "./ToggleMain/toggling.js";
 
 import { hamburgerClose } from "./Hamburger/hamburger.js";
 
