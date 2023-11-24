@@ -54,7 +54,7 @@ if (matchMedia) {
   widthChange(mq); 
 }
 
-export function widthChange(mq) {
+function widthChange(mq) {
 
   if (mq.matches) {
     main.forEach(function(div) {

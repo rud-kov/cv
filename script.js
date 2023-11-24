@@ -1,5 +1,9 @@
 import { loop } from "./Loop/loop.js";
 
+import {tileSwitchOn, tileSwitchOff, Hiding, Opening} from "./ToggleMain/toggling.js";
+
+import { hamburgerClose } from "./Hamburger/hamburger.js";
+
 loop();
 
 let lastScrollPosition = 0;
@@ -19,9 +23,6 @@ window.addEventListener("scroll", () => {
 });
 
 const mobileHeader = document.querySelector(".header--mobile");
-
-import { hamburgerClose, hamburgerOpen } from "./Hamburger/hamburger.js";
-
 
 const switcher = document.querySelectorAll(".header__link");
 
@@ -45,8 +46,6 @@ switcher.forEach(function(element) {
   });
 });
 
-import { tileSwitchOff, tileSwitchOn, hideFast, Hiding, Opening, widthChange, OpenFast } from "./ToggleMain/toggling.js";
-
 
 window.addEventListener('hashchange', function() {
 
@@ -59,33 +58,10 @@ window.addEventListener('hashchange', function() {
     main.forEach(function(div) {
       if (href.includes(div.id)) {
         Opening(div);
+        tileSwitchOn(div.id);
       } else {
         Hiding(div);
       }
     })
   }
 });
-
-
-/// ZJISTIT PROC BY TOHLE NESLO DPC: 
-
-
-//window.addEventListener("change", function() {
-//
-//  const mq = window.matchMedia("(max-width: 980px)")
-//
-//  if (mq.matches) {
-//
-//    main.forEach(function(div) {
-//      OpenFast(div);
-//      contact.classList.replace("openNoAnimation", "display--off");
-//    })
-//  } else {
-//    main.forEach(function(div) {
-//      if (div.id !== "home") {
-//        hideFast(div)
-//        tileSwitchOff();
-//      };
-//    });
-//  };
-//});
