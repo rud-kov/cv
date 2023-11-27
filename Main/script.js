@@ -1,8 +1,8 @@
-import { loop } from "./Loop/loop.js";
+import { loop } from "../loop/loop.js";
 
-import {tileSwitchOn, Hiding, Opening} from "./ToggleMain/toggling.js";
+import {tileSwitchOn, Hiding, Opening} from "../toggleMain/toggling.js";
 
-import { hamburgerClose } from "./Hamburger/hamburger.js";
+import { hamburgerClose } from "../hamburger/hamburger.js";
 
 loop();
 
