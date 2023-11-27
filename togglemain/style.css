@@ -266,7 +266,7 @@
 }
 
 .about__photo__wrapper {
-  background-image: url("/images/icons/rk.jpeg");
+  background-image: url("../images/icons/rk.jpeg");
   flex: 2;
   background-position: center 15%;
   background-size: cover;
