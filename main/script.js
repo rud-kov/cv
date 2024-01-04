@@ -11,7 +11,7 @@ let lastScrollPosition = 0;
   
 window.addEventListener("scroll", () => {
 
-  let currentScrollPosition = window.pageY;
+  let currentScrollPosition = window.scrollY;
 
   if (currentScrollPosition > 215 && currentScrollPosition > lastScrollPosition) {
     mobileHeader.style.transform = "translateY(-600px)";
