@@ -164,7 +164,7 @@
 }
 
 .main__headline {
-  color: #FF4A19;
+  color: var(--primaryColor);
   font-size: 60px;
 }
 
