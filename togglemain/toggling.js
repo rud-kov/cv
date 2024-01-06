@@ -6,28 +6,34 @@ const homeScreen = document.getElementById("homeScreen");
 
 const contact = document.querySelector(".main--contact");
 
+const innerWrapper = document.querySelectorAll(".main__inner__wrapper");
+
 
 export const Opening = (div) => {
   setTimeout(function() {
     div.classList.remove("hideAnimation", "display--off")
     div.classList.add("open")
+    //div.scrollTop = 0
   }, 750)
 }
 
 export const OpenFast = (div) => {
   div.classList.remove("hideAnimation", "display--off");
   div.classList.add("openNoAnimation");
+  //div.scrollTop = 0
 }
 
 export const Hiding = (div) => {
   div.classList.replace("open", "hideAnimation");
   setTimeout(function() {
+    innerWrapper.scrollTop = 0;
     div.classList.add("display--off");
   }, 750)
 }
 
 export const hideFast = (div) => {
   div.classList.remove("open", "openNoAnimation", "hideAnimation");
+  innerWrapper.scrollTop = 0
   div.classList.add("display--off");
 }
 
