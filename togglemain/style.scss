@@ -636,3 +636,9 @@
     font-size: .775em;
   }
 }
+
+@media only screen and (max-width: 404px) {
+  .resume__column--two {
+    margin: unset;
+  }
+}
