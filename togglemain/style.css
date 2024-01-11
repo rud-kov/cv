@@ -230,7 +230,7 @@
   }
 }
 .hideAnimation {
-  animation: animateClosing 750ms;
+  animation: animateClosing 740ms;
   animation-timing-function: ease-out;
 }
 

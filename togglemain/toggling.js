@@ -24,7 +24,7 @@ export const Hiding = (div) => {
   div.scrollTop = 0;
   setTimeout(function() {
     div.classList.add("display--off");
-  }, 750)
+  }, 740)
 }
 
 export const hideFast = (div) => {
