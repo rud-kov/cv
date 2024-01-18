@@ -21,13 +21,15 @@ export const OpenFast = (div) => {
 
 export const Hiding = (div) => {
   div.classList.replace("open", "hideAnimation");
+  div.scrollTop = 0;
   setTimeout(function() {
     div.classList.add("display--off");
-  }, 750)
+  }, 740)
 }
 
 export const hideFast = (div) => {
   div.classList.remove("open", "openNoAnimation", "hideAnimation");
+  div.scrollTop = 0;
   div.classList.add("display--off");
 }
 

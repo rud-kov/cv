@@ -1,6 +1,6 @@
 const textDisplay = document.querySelector(".home__subheadline");
 
-let phrases = ['I am a Coder','and a Copywriter','also an Idea Maker'];
+let phrases = ['Coder','Copywriter','Idea Maker'];
 
 let i = 0;
 
