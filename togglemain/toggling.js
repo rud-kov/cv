@@ -21,10 +21,11 @@ export const OpenFast = (div) => {
 
 export const Hiding = (div) => {
   div.classList.replace("open", "hideAnimation");
-  div.scrollTop = 0;
-  setTimeout(function() {
+  
+  div.addEventListener("transitionend", (event) => {
     div.classList.add("display--off");
-  }, 740)
+    console.log("brambora")
+  }) 
 }
 
 export const hideFast = (div) => {
